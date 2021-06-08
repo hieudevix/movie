@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.header {
+  display: flex;
+}
+
+.header .header__logo > img {
+  width: 50px;
+  height: 50px;
+}
+
+.header .header__nav > ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*# sourceMappingURL=main.css.map */
