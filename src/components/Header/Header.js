@@ -16,7 +16,13 @@ export default class Header extends Component {
                             <li>Ứng Dụng</li>
                         </ul>
                     </div>
-                    <div className="header__detail"></div>
+                    <div className="header__detail">
+                        <div className="header__detail__login">
+                            <img src="./images/avatar.png"></img>
+                            <span>Đăng Nhập</span>
+                        </div>
+                        <div className="header__detail__pos"></div>
+                    </div>
                 </nav>
             </div>
         )

@@ -1,0 +1,42 @@
+.header{
+    display: flex;
+    position: relative;
+    background-color: rgba(255,255,255,.95);
+    box-shadow: 0 0 15px rgb(165, 164, 164);
+    .header__logo{
+        img{
+            width:50px;
+            height: 50px;
+            margin-left: 10px;
+        }
+    }
+    .header__nav {
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        ul{
+            display:flex;
+            align-items: center;
+            margin-bottom: 0 !important;
+            li{
+                list-style: none;
+                margin-right:15px
+            }
+        }
+    }
+    .header__detail{
+        position: absolute;
+        top:50%;
+        right:15px;
+        .header__detail__login{
+            padding:5px;
+            border-right: 1px solid #ccc;
+            img{
+                width:30px;
+                height:auto;
+                border-radius: 25px;
+            }
+        }
+    }
+}
