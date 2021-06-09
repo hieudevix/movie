@@ -42,9 +42,26 @@
 import React from 'react';
 import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import { useDispatch, useSelector } from 'react-redux';
+import useSelection from 'antd/lib/table/hooks/useSelection';
 
 export default function Header() {
-    const location = ["Hồ Chí Minh", "Vũng Tàu"];
+    const {location,listLocation} = useSelector(state=>state.LocationReducer);
+    const dispatch  = useDispatch();
+
+    const renderLocation = () => {
+        return listLocation.map((value,index)=>{
+            return <a className="dropdown-item" href="#"  key={index} onClick={()=>{
+                dispatch({
+                    type:"SET_LOCATION",
+                    location:value
+                })
+            }}>{value}</a>
+        })
+    }
+    
+    
+    
     return (
         <div>
             <nav className="header">
@@ -70,21 +87,11 @@ export default function Header() {
                                             
                         <a className="dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown"  aria-expanded="true">
                             <img className="mr-1" src="./images/location-header.png" /> 
-                            <span >Hồ Chí Minh</span> 
+                            <span >{location}</span> 
                             <img className="ml-4" src="./images/dropdown-icon.png"/>
                         </a>
                         <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a className="dropdown-item" href="#">Hồ Chí Minh</a>
-                            <a className="dropdown-item" href="#">Hà Nội</a>
-                            <a className="dropdown-item" href="#">Đà Nẵng</a>
-                            <a className="dropdown-item" href="#">Hải Phòng</a>
-                            <a className="dropdown-item" href="#">Biên Hòa</a>
-                            <a className="dropdown-item" href="#">Nha Trang</a>
-                            <a className="dropdown-item" href="#">Bình Dương</a>
-                            <a className="dropdown-item" href="#">Phan Thiết</a>
-                            <a className="dropdown-item" href="#">Hạ Long</a>
-                            <a className="dropdown-item" href="#">Cần Thơ</a>
-                            <a className="dropdown-item" href="#">Vũng Tàu</a>
+                           {renderLocation()}
                         </div>
                         
                     </div>

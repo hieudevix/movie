@@ -54,6 +54,7 @@ html, body {
   position: absolute;
   top: 20%;
   right: 25px;
+  width: 14%;
   display: flex;
   line-height: 30px;
 }
@@ -61,7 +62,7 @@ html, body {
 .header .header__detail ::after {
   content: '';
   position: absolute;
-  right: 55%;
+  right: 53%;
   height: 30px;
   top: 50%;
   transform: translateY(-50%);
