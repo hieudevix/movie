@@ -46,22 +46,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import useSelection from 'antd/lib/table/hooks/useSelection';
 
 export default function Header() {
-    const {location,listLocation} = useSelector(state=>state.LocationReducer);
-    const dispatch  = useDispatch();
+    const { location, listLocation } = useSelector(state => state.LocationReducer);
+    const dispatch = useDispatch();
 
     const renderLocation = () => {
-        return listLocation.map((value,index)=>{
-            return <a className="dropdown-item" href="#"  key={index} onClick={()=>{
+        return listLocation.map((value, index) => {
+            return <a className="dropdown-item" href="#" key={index} onClick={() => {
                 dispatch({
-                    type:"SET_LOCATION",
-                    location:value
+                    type: "SET_LOCATION",
+                    location: value
                 })
             }}>{value}</a>
         })
     }
-    
-    
-    
+
+
+
     return (
         <div>
             <nav className="header">
@@ -84,19 +84,19 @@ export default function Header() {
                         </a>
                     </div>
                     <div className="header__detail__pos dropdown ml-2" id="dropdown_click" >
-                                            
-                        <a className="dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown"  aria-expanded="true">
-                            <img className="mr-1" src="./images/location-header.png" /> 
-                            <span >{location}</span> 
-                            <img className="ml-4" src="./images/dropdown-icon.png"/>
-                        </a>
-                        <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                           {renderLocation()}
+                        <div className="dropdown-toggle" style={{ width: "140px" }} href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="true">
+                            <img className="mr-1" src="./images/location-header.png" />
+                            {location}
+                            <img className="ml-4" src="./images/dropdown-icon.png" />
                         </div>
-                        
+                        <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            {renderLocation()}
+                        </div>
                     </div>
                 </div>
             </nav>
+
+
         </div>
     )
 }

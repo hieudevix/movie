@@ -1,4 +1,5 @@
 .header{
+    // font-size: $fs-1 + 2;
     display: flex;
     position: relative;
     background-color: rgba(255,255,255,.95);
@@ -39,7 +40,6 @@
         position: absolute;
         top:$position-1 - 10%;
         right:25px;
-        width:14%;
         display: flex;
         line-height: $line-height-0;
         ::after{
@@ -69,6 +69,7 @@
             }
         }
         .header__detail__pos{
+            width:10%;
             line-height: 30px;
             padding:0 0 0 $pd-1;
             cursor: pointer;
@@ -95,3 +96,4 @@
         }
     }
 }
+
