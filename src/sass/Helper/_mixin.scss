@@ -2,3 +2,19 @@
 
 
 
+// screen : tên màn hình
+
+@mixin responsive($screen){
+    @if(map-has-key($map: $breakpoints, $key: $screen)){
+        // tìm thấy màn hình
+        // Lấy giá trị từ tên màn hình
+        // $value chứ giá trị lấy được
+        $value:map-get($map: $breakpoints, $key: $screen);
+
+        @media screen  and (max-width: $value){
+            @content;
+        }
+    }@else{
+        @warn 'Màn hình không tồn tại';
+    }
+}
