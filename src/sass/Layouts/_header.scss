@@ -1,5 +1,4 @@
 .header{
-    // font-size: $fs-1 + 2;
     display: flex;
     position: relative;
     background-color: rgba(255,255,255,.95);
@@ -26,7 +25,8 @@
                 a{
                     text-decoration: none;
                     color:$color-black-0;
-                    font-size: 14px;
+                    font-size: $fs-1 + 2;
+                    font-weight: $fw-0;
                     transition: 0.2s;
                     &:hover{
                         color:$color-red-0;
@@ -59,7 +59,7 @@
             a{
                 text-decoration: none;
                 color:$color-gray-0;
-                font-size: $fs-0;
+                font-size: $fs-1 + 2;
                 img{
                     width:$width-0;
                     height:auto;
@@ -77,6 +77,7 @@
                 color: $color-gray-0;
             }
             .dropdown-menu{
+                width: 160px;
                 .dropdown-item {
                     padding: 0 $pd-5;
                     transition: none;
@@ -88,7 +89,7 @@
                 }
             }
             .dropdown-menu.show{
-                top:$position-2 !important;
+                top:20% !important;
                 left:0px;
                 color:$color-black-0;
                 font-size: $fs-0+1;

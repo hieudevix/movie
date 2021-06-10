@@ -1,0 +1,78 @@
+
+.movie__carousel{
+    position: relative;
+    .carousel__button{
+        position: absolute;
+        bottom: 100px;
+        li{
+            margin-left: $mg-0 + 1;
+            opacity: 1;
+            border-radius: $border-radius-3;
+            width:12px;
+            height:12px;
+            background-color: $color-white-0;
+            &.active{
+                background-color: $color-red-0;
+            }
+        }
+        
+    }
+    .movie__carousel__item{
+        // height:100%;
+        .carousel-item{
+            img{
+                height:850px !important;
+            }
+        }
+    }
+    .carousel-control-prev, .carousel-control-next{
+        span{
+            img{
+                height:$width-1;
+                width:$height-1;
+            }
+        }
+    }
+    .carousel-control-prev{
+        margin-left:$mg-3;
+        justify-content: flex-start;
+    }
+    .carousel-control-next{
+        margin-right:$mg-3;
+        justify-content: flex-end;
+    }
+    .formGetTicket{
+        position: absolute;
+        bottom: -50px;
+        background-color: rgba(255,255,255,.95);
+        box-shadow: 0 0 15px rgb(165, 164, 164);
+        border-radius: $border-radius-0;
+        background-color: $color-white-0;
+        left:$position-2;
+        transform: translate(-$position-2);
+        .row{
+            height:$height-2 - 10px;
+            #btnBuy{
+                background-color: #4a4a4a !important;
+            }
+            .dropdown{
+                border-right: 1px solid $color-gray-1;
+                position: relative;
+                .dropdown-title{
+                    font-size: $fs-1  !important;
+                    color: $color-black-0;
+                }
+               .selectMenu{
+                   position: absolute;
+                   right:10px;
+                   top:50%;
+                   height: 7px;
+                   width: 13px;
+                   background-size: cover;
+                   background-repeat: no-repeat;
+                //    background-image: url('./images/dropdown-icon.png');
+               }
+            }
+        }
+    }
+}

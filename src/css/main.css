@@ -1,22 +1,23 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html, body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'SF Regular';
+}
+
+@font-face {
+  font-family: 'SF Regular';
+  src: url("../asset/fonts/SF-UI-Display-Regular.otf");
 }
 
 .header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   position: relative;
   background-color: rgba(255, 255, 255, 0.95);
-  -webkit-box-shadow: 0 0 15px #a5a4a4;
-          box-shadow: 0 0 15px #a5a4a4;
+  box-shadow: 0 0 15px #a5a4a4;
 }
 
 .header .header__logo img {
@@ -29,17 +30,12 @@ html, body {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .header .header__nav ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   margin-bottom: 0 !important;
 }
 
@@ -51,8 +47,8 @@ html, body {
 .header .header__nav ul li a {
   text-decoration: none;
   color: black;
-  font-size: 14px;
-  -webkit-transition: 0.2s;
+  font-size: 17px;
+  font-weight: 400;
   transition: 0.2s;
 }
 
@@ -64,8 +60,6 @@ html, body {
   position: absolute;
   top: 20%;
   right: 25px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   line-height: 30px;
 }
@@ -76,8 +70,7 @@ html, body {
   right: 53%;
   height: 30px;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
+  transform: translateY(-50%);
   border-right: 1px solid #fff;
   border-right-color: #e9e9e9;
 }
@@ -89,7 +82,7 @@ html, body {
 .header .header__detail .header__detail__login a {
   text-decoration: none;
   color: #9b9b9b;
-  font-size: 13px;
+  font-size: 17px;
 }
 
 .header .header__detail .header__detail__login a img {
@@ -110,9 +103,12 @@ html, body {
   color: #9b9b9b;
 }
 
+.header .header__detail .header__detail__pos .dropdown-menu {
+  width: 160px;
+}
+
 .header .header__detail .header__detail__pos .dropdown-menu .dropdown-item {
   padding: 0 25px;
-  -webkit-transition: none;
   transition: none;
 }
 
@@ -122,8 +118,89 @@ html, body {
 }
 
 .header .header__detail .header__detail__pos .dropdown-menu.show {
-  top: 50% !important;
+  top: 20% !important;
   left: 0px;
   color: black;
   font-size: 14px;
 }
+
+.movie__carousel {
+  position: relative;
+}
+
+.movie__carousel .carousel__button {
+  position: absolute;
+  bottom: 100px;
+}
+
+.movie__carousel .carousel__button li {
+  margin-left: 3px;
+  opacity: 1;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+}
+
+.movie__carousel .carousel__button li.active {
+  background-color: #fb4226;
+}
+
+.movie__carousel .movie__carousel__item .carousel-item img {
+  height: 850px !important;
+}
+
+.movie__carousel .carousel-control-prev span img, .movie__carousel .carousel-control-next span img {
+  height: 50px;
+  width: 50px;
+}
+
+.movie__carousel .carousel-control-prev {
+  margin-left: 20px;
+  justify-content: flex-start;
+}
+
+.movie__carousel .carousel-control-next {
+  margin-right: 20px;
+  justify-content: flex-end;
+}
+
+.movie__carousel .formGetTicket {
+  position: absolute;
+  bottom: -50px;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 15px #a5a4a4;
+  border-radius: 10px;
+  background-color: #fff;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.movie__carousel .formGetTicket .row {
+  height: 90px;
+}
+
+.movie__carousel .formGetTicket .row #btnBuy {
+  background-color: #4a4a4a !important;
+}
+
+.movie__carousel .formGetTicket .row .dropdown {
+  border-right: 1px solid #d8d8d8;
+  position: relative;
+}
+
+.movie__carousel .formGetTicket .row .dropdown .dropdown-title {
+  font-size: 15px !important;
+  color: black;
+}
+
+.movie__carousel .formGetTicket .row .dropdown .selectMenu {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  height: 7px;
+  width: 13px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/*# sourceMappingURL=main.css.map */

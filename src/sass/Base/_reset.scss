@@ -5,5 +5,9 @@
 }
 
 html , body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'SF Regular';
 }
+@font-face {
+    font-family: 'SF Regular';
+    src: url('../asset/fonts/SF-UI-Display-Regular.otf');
+  }

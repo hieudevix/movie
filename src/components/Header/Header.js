@@ -63,7 +63,7 @@ export default function Header() {
 
 
     return (
-        <div>
+        <div className="container-fluid" style={{padding:'0', position:'fixed',zIndex:'100'}}>
             <nav className="header">
                 <div className="header__logo">
                     <img src="./images/logo.png" />
@@ -86,7 +86,7 @@ export default function Header() {
                     <div className="header__detail__pos dropdown ml-2" id="dropdown_click" >
                         <div className="dropdown-toggle" style={{ width: "140px" }} href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-expanded="true">
                             <img className="mr-1" src="./images/location-header.png" />
-                            {location}
+                            <span style={{fontSize:'17px'}}>{location}</span>
                             <img className="ml-4" src="./images/dropdown-icon.png" />
                         </div>
                         <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
