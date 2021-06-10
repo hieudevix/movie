@@ -47,8 +47,8 @@ html, body {
 .header .header__nav ul li a {
   text-decoration: none;
   color: black;
-  font-size: 17px;
-  font-weight: 400;
+  font-size: 15px -1;
+  font-weight: 500;
   transition: 0.2s;
 }
 
@@ -192,6 +192,12 @@ html, body {
 .movie__carousel .formGetTicket .row .dropdown .dropdown-title {
   font-size: 15px !important;
   color: black;
+}
+
+.movie__carousel .formGetTicket .row .dropdown .dropdown-menu {
+  position: absolute;
+  left: 0 !important;
+  top: 0 !important;
 }
 
 .movie__carousel .formGetTicket .row .dropdown .selectMenu {

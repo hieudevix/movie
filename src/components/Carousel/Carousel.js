@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Select } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { getListFilmForm } from '../../redux/actions/FormGetSticketActions';
 
 const { Option } = Select;
 export default function Carousel() {
-    // renderCarousel = ()=>{
-    function handleChange(value) {
-        console.log(`selected ${value}`);
+
+    const {listFilm} = useSelector(state=>state.FormGetSticketReducer);
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(getListFilmForm());
+    },[])
+    console.log('listFilm',listFilm);
+    const renderFilm = () =>{
+        return listFilm?.map((f,index)=>{
+            return <a className="dropdown-item" keys={index} href="#">{f}</a>
+        })
     }
-    // }
     return (
         <div>
             <div id="carouselExampleIndicators" className="carousel slide movie__carousel" data-ride="carousel">
@@ -36,29 +45,30 @@ export default function Carousel() {
 
                 <div className="container formGetTicket" >
                     <div className="row" style={{ alignItems: 'center' }}>
-                        <div className="col-4 selectFilm pr-0" >
+                        <div className="col-4 selectFilm p-0" >
                             {/* <Select defaultValue="Phim" style={{ width: '100%' }} onChange={handleChange}>
                                 <Option value="jack">Jack</Option>
                                 <Option value="lucy">Lucy</Option>
                                 <Option value="Yiminghe">yiminghe</Option>
                             </Select> */}
-                            <div className="dropdown p-2">
+                            <div className="dropdown" >
                                 <div className="selectMenu" style={{backgroundImage:"url('./images/dropdown-icon.png')"}}></div>
-                                <div className="dropdown-title" href="#" role="button" id="dropdownMenuFilm" data-toggle="dropdown"  aria-expanded="false">
+                                <div className="dropdown-title pl-4 pr-2 py-2" href="#" role="button" id="dropdownMenuFilm" data-toggle="dropdown"  aria-expanded="false">
                                     Phim
                                 </div>
                                 <div className="dropdown-menu" aria-labelledby="dropdownMenuFilm">
-                                    <a className="dropdown-item" href="#">Action</a>
+                                    {/* <a className="dropdown-item" href="#">Action as fasdfasdfas dfasdf asdf asdfasdfasdfadfasdf</a>
                                     <a className="dropdown-item" href="#">Another action</a>
-                                    <a className="dropdown-item" href="#">Something else here</a>
+                                    <a className="dropdown-item" href="#">Something else here</a> */}
+                                    {renderFilm()}
                                 </div>
                             </div>
 
                         </div>
                         <div className="col-2 selectCinema p-0">
-                            <div className="dropdown p-2">
+                            <div className="dropdown ">
                                 <div className="selectMenu" style={{backgroundImage:"url('./images/dropdown-icon.png')"}}></div>
-                                <div className="dropdown-title"  href="#" role="button" id="dropdownMenuCinema" data-toggle="dropdown"  aria-expanded="false">
+                                <div className="dropdown-title p-2"  href="#" role="button" id="dropdownMenuCinema" data-toggle="dropdown"  aria-expanded="false">
                                     Rạp Chiếu 
                                 </div>
                                 <div className="dropdown-menu" aria-labelledby="dropdownMenuCinema">
@@ -69,9 +79,9 @@ export default function Carousel() {
                             </div>
                         </div>
                         <div className="col-2 selectDate p-0">
-                            <div className="dropdown p-2">
+                            <div className="dropdown ">
                                 <div className="selectMenu" style={{backgroundImage:"url('./images/dropdown-icon.png')"}}></div>
-                                <div  className="dropdown-title"  href="#" role="button" id="dropdownMenuDate" data-toggle="dropdown"  aria-expanded="false">
+                                <div  className="dropdown-title p-2"  href="#" role="button" id="dropdownMenuDate" data-toggle="dropdown"  aria-expanded="false">
                                     Ngày Xem
                                 </div>
                                 <div className="dropdown-menu" aria-labelledby="dropdownMenuDate">
@@ -82,9 +92,9 @@ export default function Carousel() {
                             </div>
                         </div>
                         <div className="col-2 selectMovieScreening p-0">
-                            <div className="dropdown p-2" >
+                            <div className="dropdown " >
                                 <div className="selectMenu" style={{backgroundImage:"url('./images/dropdown-icon.png')"}}></div>
-                                <div  className="dropdown-title"  href="#" role="button" id="dropdownMenuScreening" data-toggle="dropdown"  aria-expanded="false">
+                                <div  className="dropdown-title p-2"  href="#" role="button" id="dropdownMenuScreening" data-toggle="dropdown"  aria-expanded="false">
                                     Xuất Chiếu
                                 </div>
                                 <div className="dropdown-menu" aria-labelledby="dropdownMenuScreening">
