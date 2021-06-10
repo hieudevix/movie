@@ -15,6 +15,7 @@
         position: absolute;
         top:$position-2;
         left:$position-2;
+        font-weight: 500;
         transform: translate(-$position-2, -$position-2);
         ul{
             display:flex;
@@ -42,6 +43,7 @@
         right:25px;
         display: flex;
         line-height: $line-height-0;
+        
         ::after{
             content: '';
             position: absolute;
