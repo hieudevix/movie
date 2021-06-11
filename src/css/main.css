@@ -7,6 +7,7 @@
 
 html, body {
   font-family: 'SF Regular';
+  font-size: 14px;
 }
 
 @font-face {
@@ -22,6 +23,7 @@ html, body {
   background-color: rgba(255, 255, 255, 0.95);
   -webkit-box-shadow: 0 0 15px #a5a4a4;
           box-shadow: 0 0 15px #a5a4a4;
+  height: 60px;
 }
 
 .header .header__logo img {
@@ -57,7 +59,6 @@ html, body {
 .header .header__nav ul li a {
   text-decoration: none;
   color: black;
-  font-size: 15px -1;
   font-weight: 500;
   -webkit-transition: 0.2s;
   transition: 0.2s;
@@ -96,7 +97,6 @@ html, body {
 .header .header__detail .header__detail__login a {
   text-decoration: none;
   color: #9b9b9b;
-  font-size: 17px;
 }
 
 .header .header__detail .header__detail__login a img {
@@ -111,6 +111,20 @@ html, body {
   line-height: 30px;
   padding: 0 0 0 5px;
   cursor: pointer;
+  position: relative;
+}
+
+.header .header__detail .header__detail__pos .header__choose__pos {
+  width: 120px;
+}
+
+.header .header__detail .header__detail__pos .header__pos__icon {
+  position: absolute;
+  top: 45%;
+  right: -120px;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
 }
 
 .header .header__detail .header__detail__pos #dropdownMenuLink {
@@ -136,11 +150,11 @@ html, body {
   top: 20% !important;
   left: 0px;
   color: black;
-  font-size: 14px;
 }
 
 .movie__carousel {
   position: relative;
+  margin-top: 60px;
 }
 
 .movie__carousel .carousel__button {
@@ -162,7 +176,8 @@ html, body {
 }
 
 .movie__carousel .movie__carousel__item .carousel-item img {
-  height: 850px !important;
+  height: 100% !important;
+  display: block;
 }
 
 .movie__carousel .carousel-control-prev span img, .movie__carousel .carousel-control-next span img {
@@ -184,7 +199,7 @@ html, body {
           justify-content: flex-end;
 }
 
-.movie__carousel .formGetTicket {
+.formGetTicket {
   position: absolute;
   bottom: -50px;
   background-color: rgba(255, 255, 255, 0.95);
@@ -197,32 +212,37 @@ html, body {
           transform: translate(-50%);
 }
 
-.movie__carousel .formGetTicket .row {
+.formGetTicket .row {
   height: 90px;
 }
 
-.movie__carousel .formGetTicket .row #btnBuy {
+.formGetTicket .row #btnBuy {
   background-color: #4a4a4a !important;
 }
 
-.movie__carousel .formGetTicket .row .dropdown {
+.formGetTicket .row .dropdown {
   border-right: 1px solid #d8d8d8;
   position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.movie__carousel .formGetTicket .row .dropdown .dropdown-title {
+.formGetTicket .row .dropdown .dropdown-title {
   font-size: 15px !important;
   color: black;
 }
 
-.movie__carousel .formGetTicket .row .dropdown .dropdown-menu {
+.formGetTicket .row .dropdown .dropdown-menu {
   position: absolute;
+  max-height: 300px;
+  overflow-y: scroll;
+  z-index: 20;
   min-width: 160px;
   left: 0 !important;
   top: 0 !important;
 }
 
-.movie__carousel .formGetTicket .row .dropdown .selectMenu {
+.formGetTicket .row .dropdown .selectMenu {
   position: absolute;
   right: 10px;
   top: 50%;

@@ -82,7 +82,7 @@ export default function FormGetSticket() {
                                 <div className="dropdown-title p-2"  href="#" role="button" id="dropdownMenuCinema" data-toggle="dropdown"  aria-expanded="false">
                                     {Cinema} 
                                 </div>
-                                <div className="dropdown-menu" aria-labelledby="dropdownMenuCinema">
+                                <div className="dropdown-menu" style={{zIndex:'22'}} aria-labelledby="dropdownMenuCinema">
                                     {renderCinema()}
                                 </div>
                             </div>

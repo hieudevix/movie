@@ -19,6 +19,7 @@ export const FormGetSticketReducer = (state=stateDefautl, action) =>{
         case 'CHOOSE_FILM':{
             state.Film.tenPhim = action.tenPhim;
             state.Film.maPhim  = action.maPhim;
+            state.Cinema = "Rạp Chiếu";
             return {...state};
         }
         case 'GET_LIST_CINEMA':{

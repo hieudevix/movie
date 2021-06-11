@@ -3,6 +3,7 @@
     position: relative;
     background-color: rgba(255,255,255,.95);
     box-shadow: 0 0 15px rgb(165, 164, 164);
+    height:60px;
     .header__logo{
         img{
             width:$width-1;
@@ -26,7 +27,6 @@
                 a{
                     text-decoration: none;
                     color:$color-black-0;
-                    font-size: $fs-1 -1;
                     font-weight: $fw-1;
                     transition: 0.2s;
                     &:hover{
@@ -61,7 +61,6 @@
             a{
                 text-decoration: none;
                 color:$color-gray-0;
-                font-size: $fs-1 + 2;
                 img{
                     width:$width-0;
                     height:auto;
@@ -75,6 +74,18 @@
             line-height: 30px;
             padding:0 0 0 $pd-1;
             cursor: pointer;
+            position: relative;
+            .header__choose__pos{
+                width:$width-2+20px;
+            }
+            .header__pos__icon{
+                position: absolute;
+                top:45%;
+                right:-120px;
+                background-repeat: no-repeat;
+                height:100%;
+                width:100%;
+            }
             #dropdownMenuLink{
                 color: $color-gray-0;
             }
@@ -94,7 +105,6 @@
                 top:20% !important;
                 left:0px;
                 color:$color-black-0;
-                font-size: $fs-0+1;
             }
         }
     }

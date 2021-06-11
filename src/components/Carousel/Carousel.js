@@ -10,21 +10,21 @@ export default function Carousel() {
     
     return (
         <div>
-            <div id="carouselExampleIndicators" className="carousel slide movie__carousel" data-ride="carousel">
-                <ol className="carousel-indicators carousel__button">
+            <div id="carouselExampleIndicators"  className="carousel slide movie__carousel" data-ride="carousel">
+                <ol className="carousel-indicators carousel__button" style={{zIndex:'1'}}>
                     <li data-target="#carouselExampleIndicators" data-slide-to={0} className="active" />
                     <li data-target="#carouselExampleIndicators" data-slide-to={1} />
                     <li data-target="#carouselExampleIndicators" data-slide-to={2} />
                 </ol>
                 <div className="carousel-inner movie__carousel__item">
                     <div className="carousel-item active">
-                        <img style={{backgroundImage:"url('./images/carousel/trang_ti.jpg') "}}  className="d-block w-100" />
+                        <img  src="./images/carousel/ban_tay_diet_quy.png"  className="d-block w-100" />
                     </div>
                     <div className="carousel-item">
-                        <img style={{backgroundImage:"url('./images/carousel/ban_tay_diet_quy.png') "}} className="d-block w-100" />
+                        <img  src="./images/carousel/ban_tay_diet_quy.png" className="d-block w-100" />
                     </div>
                     <div className="carousel-item">
-                        <img style={{backgroundImage:"url('./images/carousel/lat_mat_48h.png')"}}  className="d-block w-100" />
+                        <img  src="./images/carousel/lat_mat_48h.png"  className="d-block w-100" />
                     </div>
                 </div>
                 <a className="carousel-control-prev " href="#carouselExampleIndicators" role="button" data-slide="prev">
