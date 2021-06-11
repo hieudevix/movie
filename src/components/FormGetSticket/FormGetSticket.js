@@ -1,34 +1,64 @@
+import { Group } from 'antd/lib/avatar';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getListFilmForm } from '../../redux/actions/FormGetSticketActions';
+import { getListFilmForm, getMovieShowtimesAndCinemas } from '../../redux/actions/FormGetSticketActions';
 import { getCinemaFilmForm } from '../../redux/actions/FormGetSticketActions';
 
 export default function FormGetSticket() {
-    const {Film, listFilm, Cinema, listCinema} = useSelector(state=>state.FormGetSticketReducer);
+    const {Film, listFilm, Cinema, listCinema, movieShowTimes, listMovieShowTimes} = useSelector(state=>state.FormGetSticketReducer);
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(getListFilmForm());
         if(Film.maPhim !== null){
             dispatch(getCinemaFilmForm(Film.maPhim));
         }
+        if(listCinema.maHeThongRap !== null){
+            dispatch(getMovieShowtimesAndCinemas(listCinema.maHeThongRap));
+        }
     },[Film.tenPhim])
     console.log('listFilm',listFilm);
     console.log('Film',Film);
     console.log('Rap Chieu', Cinema);
     console.log('listCinema',listCinema.heThongRapChieu);
+    // console.log('xuatChieu',listMovieShowTimes);
     const renderFilm = () =>{
-        return listFilm?.map((f,index)=>{
-            
-            return <a className="dropdown-item" key={index} onClick={()=>{dispatch({type:'CHOOSE_FILM', tenPhim:f.tenPhim, maPhim:f.maPhim})}}>{f.tenPhim}</a>
-        })
+        let arrListFilm = [];
+        for(let i = 0; i < listFilm.length; i++){
+            if(i == 10){
+                break;
+            }
+            let arrData = <a className="dropdown-item" key={i} onClick={()=>{dispatch({type:'CHOOSE_FILM', tenPhim:listFilm[i].tenPhim, maPhim:listFilm[i].maPhim})}}>
+               <img className="mr-1" style={{borderRadius:'50px'}} width={50} height={50} src={listFilm[i].hinhAnh}/> {listFilm[i].tenPhim}</a>;
+             arrListFilm.push(arrData);
+        }
+        return arrListFilm;
     }
     const renderCinema = () =>{
         return listCinema.heThongRapChieu?.map((htr,index)=>{
             return htr.cumRapChieu?.map((cr,index)=>{
-                return  <a className="dropdown-item" key={index} ><img src={htr.logo} width={50} height="50"/>{cr.tenCumRap}</a>
+                return  <a className="dropdown-item" key={index} onClick={()=>{
+                    dispatch({
+                        type:'CHOOSE_CINEMA',
+                        tenCumRap:cr.tenCumRap
+                    })
+                }}  ><img className="mr-1" src={htr.logo} width={50} height={50}/>{cr.tenCumRap}</a>
             })
             
         });
+    }
+    const renderXuatChieu = () =>{
+        // let arrXuatChieu = [];
+        // for(let i = 0; i < listCinema.heThongRapChieu.length; i++){
+        //     for(let j = 0; j < listCinema.heThongRapChieu[i].length; j++){
+        //         if(listCinema.heThongRapChieu[i][j].tenCumRap == Cinema){
+        //             for(let h = 0; h < listCinema.heThongRapChieu[i][j].length; h++){
+        //                 let arrData = <a className="dropdown-item" href="#">{listCinema.heThongRapChieu[i][j][h].ngayChieuGioChieu}</a>
+        //                 arrXuatChieu.push(arrData);
+        //             }
+        //         }
+        //     }
+        // }
+        // return arrXuatChieu;
     }
     return (
         <div>
@@ -74,12 +104,10 @@ export default function FormGetSticket() {
                             <div className="dropdown " >
                                 <div className="selectMenu" style={{backgroundImage:"url('./images/dropdown-icon.png')"}}></div>
                                 <div  className="dropdown-title p-2"  href="#" role="button" id="dropdownMenuScreening" data-toggle="dropdown"  aria-expanded="false">
-                                    Xuất Chiếu
+                                    {movieShowTimes.showTimes}
                                 </div>
                                 <div className="dropdown-menu" aria-labelledby="dropdownMenuScreening">
-                                    <a className="dropdown-item" href="#">Action</a>
-                                    <a className="dropdown-item" href="#">Another action</a>
-                                    <a className="dropdown-item" href="#">Something else here</a>
+                                   {renderXuatChieu()}
                                 </div>
                             </div>
                         </div>

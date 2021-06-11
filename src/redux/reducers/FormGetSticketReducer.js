@@ -4,7 +4,9 @@ const stateDefautl = {
     Film:{tenPhim:"Phim",maPhim:null},
     listFilm : [],
     Cinema:["Rạp Chiếu"],
-    listCinema: []
+    listCinema: [],
+    movieShowTimes:{showTimes:"Xuất Chiếu"},
+    listMovieShowTimes: []
 
 }
 
@@ -21,6 +23,14 @@ export const FormGetSticketReducer = (state=stateDefautl, action) =>{
         }
         case 'GET_LIST_CINEMA':{
             state.listCinema = action.listCinema;
+            return {...state};
+        }
+        case 'CHOOSE_CINEMA':{
+            state.Cinema = action.tenCumRap;
+            return {...state};
+        }
+        case 'GET_LIST_MOVIE_SHOW_TIME':{
+            state.listMovieShowTimes = action.listMovieShowTimes;
             return {...state};
         }
         default: return {...state};

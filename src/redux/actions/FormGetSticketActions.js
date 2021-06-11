@@ -32,3 +32,18 @@ export const getCinemaFilmForm = (maPhim) =>{
         }
     }
 }
+
+export const getMovieShowtimesAndCinemas = (maHeThongRap) => {
+    return async (dispatch)=>{
+        try{
+            let result = await axios({
+                url:`https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?${maHeThongRap}=CGV&maNhom=GP01`,
+                method:'GET'
+            })
+            dispatch({type:'GET_LIST_MOVIE_SHOW_TIME', listMovieShowTimes: result.data});
+        }catch(errors){
+            console.log(errors);
+        }
+    }
+
+}
