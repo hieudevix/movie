@@ -6,7 +6,12 @@
 }
 
 html, body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'SF Regular';
+}
+
+@font-face {
+  font-family: 'SF Regular';
+  src: url("../asset/fonts/SF-UI-Display-Regular.otf");
 }
 
 .header {
@@ -52,7 +57,8 @@ html, body {
 .header .header__nav ul li a {
   text-decoration: none;
   color: black;
-  font-size: 14px;
+  font-size: 15px -1;
+  font-weight: 500;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
@@ -90,7 +96,7 @@ html, body {
 .header .header__detail .header__detail__login a {
   text-decoration: none;
   color: #9b9b9b;
-  font-size: 13px;
+  font-size: 17px;
 }
 
 .header .header__detail .header__detail__login a img {
@@ -111,6 +117,10 @@ html, body {
   color: #9b9b9b;
 }
 
+.header .header__detail .header__detail__pos .dropdown-menu {
+  width: 160px;
+}
+
 .header .header__detail .header__detail__pos .dropdown-menu .dropdown-item {
   padding: 0 25px;
   -webkit-transition: none;
@@ -123,8 +133,101 @@ html, body {
 }
 
 .header .header__detail .header__detail__pos .dropdown-menu.show {
-  top: 50% !important;
+  top: 20% !important;
   left: 0px;
   color: black;
   font-size: 14px;
+}
+
+.movie__carousel {
+  position: relative;
+}
+
+.movie__carousel .carousel__button {
+  position: absolute;
+  bottom: 100px;
+}
+
+.movie__carousel .carousel__button li {
+  margin-left: 3px;
+  opacity: 1;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+}
+
+.movie__carousel .carousel__button li.active {
+  background-color: #fb4226;
+}
+
+.movie__carousel .movie__carousel__item .carousel-item img {
+  height: 850px !important;
+}
+
+.movie__carousel .carousel-control-prev span img, .movie__carousel .carousel-control-next span img {
+  height: 50px;
+  width: 50px;
+}
+
+.movie__carousel .carousel-control-prev {
+  margin-left: 20px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.movie__carousel .carousel-control-next {
+  margin-right: 20px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.movie__carousel .formGetTicket {
+  position: absolute;
+  bottom: -50px;
+  background-color: rgba(255, 255, 255, 0.95);
+  -webkit-box-shadow: 0 0 15px #a5a4a4;
+          box-shadow: 0 0 15px #a5a4a4;
+  border-radius: 10px;
+  background-color: #fff;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+
+.movie__carousel .formGetTicket .row {
+  height: 90px;
+}
+
+.movie__carousel .formGetTicket .row #btnBuy {
+  background-color: #4a4a4a !important;
+}
+
+.movie__carousel .formGetTicket .row .dropdown {
+  border-right: 1px solid #d8d8d8;
+  position: relative;
+}
+
+.movie__carousel .formGetTicket .row .dropdown .dropdown-title {
+  font-size: 15px !important;
+  color: black;
+}
+
+.movie__carousel .formGetTicket .row .dropdown .dropdown-menu {
+  position: absolute;
+  min-width: 160px;
+  left: 0 !important;
+  top: 0 !important;
+}
+
+.movie__carousel .formGetTicket .row .dropdown .selectMenu {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  height: 7px;
+  width: 13px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
