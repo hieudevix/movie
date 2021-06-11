@@ -8,20 +8,28 @@ export default function FormGetSticket() {
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(getListFilmForm());
-        dispatch(getCinemaFilmForm(Film.maPhim));
-    },[])
+        if(Film.maPhim !== null){
+            dispatch(getCinemaFilmForm(Film.maPhim));
+        }
+    },[Film.tenPhim])
     console.log('listFilm',listFilm);
     console.log('Film',Film);
     console.log('Rap Chieu', Cinema);
-    console.log('listCinema',listCinema);
+    console.log('listCinema',listCinema.heThongRapChieu);
     const renderFilm = () =>{
         return listFilm?.map((f,index)=>{
+            
             return <a className="dropdown-item" key={index} onClick={()=>{dispatch({type:'CHOOSE_FILM', tenPhim:f.tenPhim, maPhim:f.maPhim})}}>{f.tenPhim}</a>
         })
     }
-    // const renderCinema = () =>{
-    //     return 
-    // }
+    const renderCinema = () =>{
+        return listCinema.heThongRapChieu?.map((htr,index)=>{
+            return htr.cumRapChieu?.map((cr,index)=>{
+                return  <a className="dropdown-item" key={index} ><img src={htr.logo} width={50} height="50"/>{cr.tenCumRap}</a>
+            })
+            
+        });
+    }
     return (
         <div>
             <div className="container formGetTicket" >
@@ -45,9 +53,7 @@ export default function FormGetSticket() {
                                     {Cinema} 
                                 </div>
                                 <div className="dropdown-menu" aria-labelledby="dropdownMenuCinema">
-                                    <a className="dropdown-item" href="#">Action</a>
-                                    <a className="dropdown-item" href="#">Another action</a>
-                                    <a className="dropdown-item" href="#">Something else here</a>
+                                    {renderCinema()}
                                 </div>
                             </div>
                         </div>
