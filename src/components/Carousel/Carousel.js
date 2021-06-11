@@ -2,21 +2,12 @@ import React, { useEffect } from 'react'
 import { Select } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { getListFilmForm } from '../../redux/actions/FormGetSticketActions';
+import FormGetSticket from '../FormGetSticket/FormGetSticket';
 
 const { Option } = Select;
 export default function Carousel() {
 
-    const {listFilm} = useSelector(state=>state.FormGetSticketReducer);
-    const dispatch = useDispatch();
-    useEffect(()=>{
-        dispatch(getListFilmForm());
-    },[])
-    console.log('listFilm',listFilm);
-    const renderFilm = () =>{
-        return listFilm?.map((f,index)=>{
-            return <a className="dropdown-item" keys={index} href="#">{f}</a>
-        })
-    }
+    
     return (
         <div>
             <div id="carouselExampleIndicators" className="carousel slide movie__carousel" data-ride="carousel">
@@ -27,13 +18,13 @@ export default function Carousel() {
                 </ol>
                 <div className="carousel-inner movie__carousel__item">
                     <div className="carousel-item active">
-                        <img src="./images/carousel/trang_ti.jpg" className="d-block w-100" />
+                        <img style={{backgroundImage:"url('./images/carousel/trang_ti.jpg') "}}  className="d-block w-100" />
                     </div>
                     <div className="carousel-item">
-                        <img src="./images/carousel/ban_tay_diet_quy.png" className="d-block w-100" />
+                        <img style={{backgroundImage:"url('./images/carousel/ban_tay_diet_quy.png') "}} className="d-block w-100" />
                     </div>
                     <div className="carousel-item">
-                        <img src="./images/carousel/lat_mat_48h.png" className="d-block w-100" />
+                        <img style={{backgroundImage:"url('./images/carousel/lat_mat_48h.png')"}}  className="d-block w-100" />
                     </div>
                 </div>
                 <a className="carousel-control-prev " href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -43,72 +34,7 @@ export default function Carousel() {
                     <span aria-hidden="true"><img src="./images/icons/next-session.png" /></span>
                 </a>
 
-                <div className="container formGetTicket" >
-                    <div className="row" style={{ alignItems: 'center' }}>
-                        <div className="col-4 selectFilm p-0" >
-                            {/* <Select defaultValue="Phim" style={{ width: '100%' }} onChange={handleChange}>
-                                <Option value="jack">Jack</Option>
-                                <Option value="lucy">Lucy</Option>
-                                <Option value="Yiminghe">yiminghe</Option>
-                            </Select> */}
-                            <div className="dropdown" >
-                                <div className="selectMenu" style={{backgroundImage:"url('./images/dropdown-icon.png')"}}></div>
-                                <div className="dropdown-title pl-4 pr-2 py-2" href="#" role="button" id="dropdownMenuFilm" data-toggle="dropdown"  aria-expanded="false">
-                                    Phim
-                                </div>
-                                <div className="dropdown-menu" aria-labelledby="dropdownMenuFilm">
-                                    {/* <a className="dropdown-item" href="#">Action as fasdfasdfas dfasdf asdf asdfasdfasdfadfasdf</a>
-                                    <a className="dropdown-item" href="#">Another action</a>
-                                    <a className="dropdown-item" href="#">Something else here</a> */}
-                                    {renderFilm()}
-                                </div>
-                            </div>
-
-                        </div>
-                        <div className="col-2 selectCinema p-0">
-                            <div className="dropdown ">
-                                <div className="selectMenu" style={{backgroundImage:"url('./images/dropdown-icon.png')"}}></div>
-                                <div className="dropdown-title p-2"  href="#" role="button" id="dropdownMenuCinema" data-toggle="dropdown"  aria-expanded="false">
-                                    Rạp Chiếu 
-                                </div>
-                                <div className="dropdown-menu" aria-labelledby="dropdownMenuCinema">
-                                    <a className="dropdown-item" href="#">Action</a>
-                                    <a className="dropdown-item" href="#">Another action</a>
-                                    <a className="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-2 selectDate p-0">
-                            <div className="dropdown ">
-                                <div className="selectMenu" style={{backgroundImage:"url('./images/dropdown-icon.png')"}}></div>
-                                <div  className="dropdown-title p-2"  href="#" role="button" id="dropdownMenuDate" data-toggle="dropdown"  aria-expanded="false">
-                                    Ngày Xem
-                                </div>
-                                <div className="dropdown-menu" aria-labelledby="dropdownMenuDate">
-                                    <a className="dropdown-item" href="#">Action</a>
-                                    <a className="dropdown-item" href="#">Another action</a>
-                                    <a className="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-2 selectMovieScreening p-0">
-                            <div className="dropdown " >
-                                <div className="selectMenu" style={{backgroundImage:"url('./images/dropdown-icon.png')"}}></div>
-                                <div  className="dropdown-title p-2"  href="#" role="button" id="dropdownMenuScreening" data-toggle="dropdown"  aria-expanded="false">
-                                    Xuất Chiếu
-                                </div>
-                                <div className="dropdown-menu" aria-labelledby="dropdownMenuScreening">
-                                    <a className="dropdown-item" href="#">Action</a>
-                                    <a className="dropdown-item" href="#">Another action</a>
-                                    <a className="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-2">
-                            <button id="#btnBuy" className="btn btn-dark">MUA VÉ NGAY</button>
-                        </div>
-                    </div>
-                </div>
+                <FormGetSticket/>
             </div>
         </div>
 

@@ -17,3 +17,17 @@ export const getListFilmForm = () =>{
         }
     }
 }
+
+export const getCinemaFilmForm = (maPhim) =>{
+    return async (dispatch)=>{
+        try{
+            let result = await axios({
+                url:`https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`
+            })
+            console.log(result.data);
+            dispatch({type:'GET_LIST_CINEMA', listCinema: result.data});
+        }catch(errors){
+            console.log(errors);
+        }
+    }
+}
