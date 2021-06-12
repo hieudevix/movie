@@ -22,12 +22,12 @@ export default function FormGetSticket() {
     const onChange = (date, dateString)=>{
 
     }
-    console.log('listFilm',listFilm);
+    // console.log('listFilm',listFilm);
     // console.log('Film',Film);
     // console.log('Rap Chieu', Cinema);
     // console.log('listCinema',listCinema.heThongRapChieu);
     // console.log('xuatChieu',listMovieShowTimes);
-    console.log('listMovieShowTime',listMovieShowTimes);
+    // console.log('listMovieShowTime',listMovieShowTimes);
     const renderFilm = () =>{
         let arrListFilm = [];
         for(let i = 0; i < listFilm.length; i++){

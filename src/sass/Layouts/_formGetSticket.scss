@@ -5,6 +5,7 @@
     box-shadow: 0 0 15px rgb(165, 164, 164);
     border-radius: $border-radius-0;
     background-color: $color-white-0;
+    font-weight: 500;
     left:$position-2;
     transform: translate(-$position-2);
     .row{
@@ -56,6 +57,9 @@
                 min-width: 160px;
                 left:0 !important;
                 top:0 !important;
+                // .dropdown-item{
+                //     font-weight: 500;
+                // }
             }
            .selectMenu{
                position: absolute;

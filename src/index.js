@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "antd/dist/antd.css";
+// import "slick-carousel/slick/slick.css"; 
 import {Provider} from 'react-redux';
 import { store } from './redux/configStore';
 ReactDOM.render(

@@ -188,6 +188,7 @@ html, body {
   box-shadow: 0 0 15px #a5a4a4;
   border-radius: 10px;
   background-color: #fff;
+  font-weight: 500;
   left: 50%;
   transform: translate(-50%);
 }
@@ -257,5 +258,63 @@ html, body {
   width: 13px;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.movie__tab {
+  padding-top: 75px;
+}
+
+.movie__tab .movie__tab__title .tab__tittle__item {
+  justify-content: center;
+  border: 0;
+}
+
+.movie__tab .movie__tab__title .tab__tittle__item .nav-item {
+  border: 0;
+  font-size: 20px;
+  color: black;
+  font-weight: 500;
+  transition: 0.4s;
+}
+
+.movie__tab .movie__tab__title .tab__tittle__item .nav-item.active {
+  font-size: 24px;
+  color: #fb4226;
+}
+
+.movie__tab .movie__tab__title .tab__tittle__item .nav-item:hover {
+  font-size: 24px;
+}
+
+.movie__tab .movie__tab__item button.slick-arrow.slick-prev {
+  position: absolute;
+  top: 45%;
+  background: url(../asset/icons/back-session.png);
+  background-size: contain;
+  transform: translateY(-50%);
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 2;
+  opacity: .5;
+  left: -100px;
+  height: 100px;
+  width: 50px;
+  background-color: transparent;
+}
+
+.movie__tab .movie__tab__item button.slick-arrow.slick-next {
+  position: absolute;
+  top: 45%;
+  background: url(../asset/icons/next-session.png);
+  background-size: contain;
+  transform: translateY(-50%);
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 2;
+  opacity: .5;
+  right: -100px;
+  height: 100px;
+  width: 50px;
+  background-color: transparent;
 }
 /*# sourceMappingURL=main.css.map */
