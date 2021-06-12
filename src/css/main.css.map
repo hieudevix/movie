@@ -8,7 +8,8 @@
         "../sass/Base/_reset.scss",
         "../sass/Layouts/_header.scss",
         "../sass/Layouts/_carousel.scss",
-        "../sass/Layouts/_formGetSticket.scss"
+        "../sass/Layouts/_formGetSticket.scss",
+        "../sass/Layouts/_tab.scss"
     ],
     "names": [],
     "file": "main.css"

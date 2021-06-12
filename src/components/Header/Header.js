@@ -60,8 +60,6 @@ export default function Header() {
         })
     }
 
-
-
     return (
         <div className="container-fluid" style={{padding:'0', position:'fixed',zIndex:'100',top:'-1px'}}>
             <nav className="header">
@@ -95,8 +93,6 @@ export default function Header() {
                     </div>
                 </div>
             </nav>
-
-
         </div>
     )
 }

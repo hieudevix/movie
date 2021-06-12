@@ -27,6 +27,7 @@ export default function FormGetSticket() {
     // console.log('Rap Chieu', Cinema);
     // console.log('listCinema',listCinema.heThongRapChieu);
     // console.log('xuatChieu',listMovieShowTimes);
+    console.log('listMovieShowTime',listMovieShowTimes);
     const renderFilm = () =>{
         let arrListFilm = [];
         for(let i = 0; i < listFilm.length; i++){
@@ -57,7 +58,6 @@ export default function FormGetSticket() {
             
         });
     }
-    
     const setColor = (codeCinema) =>{
         let color="red";
         if(codeCinema.indexOf("cns") !== -1 ){
@@ -130,8 +130,6 @@ export default function FormGetSticket() {
                                     
                                 </div>
                                 {/* <DatePicker style={{width:'100%'}} placeholder="Ngày Xem" onChange={onChange} /> */}
-                                
-                                
                             </div>
                         </div>
                         <div className="col-2 selectMovieScreening p-0">
