@@ -28,7 +28,6 @@ export default function Tab() {
                     <p className="card-text">{f.tenPhim}</p>
                 </div>
             </div>
-            
         })
     }
     return (
