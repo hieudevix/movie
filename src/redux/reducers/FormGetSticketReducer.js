@@ -1,11 +1,11 @@
 
 
 const stateDefautl = {
-    Film:{tenPhim:"Phim",maPhim:null},
+    Film:{tenPhim:"",maPhim:null},
     listFilm : [],
-    Cinema:["Rạp Chiếu"],
+    Cinema:{nameCinema:"", codeCinema:""},
     listCinema: [],
-    movieShowTimes:{showTimes:"Xuất Chiếu"},
+    movieShowTimes:{showTimes:""},
     listMovieShowTimes: []
 
 }
@@ -19,7 +19,8 @@ export const FormGetSticketReducer = (state=stateDefautl, action) =>{
         case 'CHOOSE_FILM':{
             state.Film.tenPhim = action.tenPhim;
             state.Film.maPhim  = action.maPhim;
-            state.Cinema = "Rạp Chiếu";
+            state.Cinema.nameCinema = "";
+            state.movieShowTimes.showTimes = "";
             return {...state};
         }
         case 'GET_LIST_CINEMA':{
@@ -27,8 +28,13 @@ export const FormGetSticketReducer = (state=stateDefautl, action) =>{
             return {...state};
         }
         case 'CHOOSE_CINEMA':{
-            state.Cinema = action.tenCumRap;
+            state.Cinema.nameCinema = action.nameCinema;
+            state.Cinema.codeCinema = action.codeCinema;
+            state.movieShowTimes.showTimes = "";
             return {...state};
+        }
+        case 'CHOOSE_MOVIE_SHOW_TIME':{
+            state.movieShowTimes.showTimes = action.showTimes
         }
         case 'GET_LIST_MOVIE_SHOW_TIME':{
             state.listMovieShowTimes = action.listMovieShowTimes;

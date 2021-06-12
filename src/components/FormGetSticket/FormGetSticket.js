@@ -1,6 +1,8 @@
 import { Group } from 'antd/lib/avatar';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment';
+import {Tag, DatePicker} from 'antd';
 import { getListFilmForm, getMovieShowtimesAndCinemas } from '../../redux/actions/FormGetSticketActions';
 import { getCinemaFilmForm } from '../../redux/actions/FormGetSticketActions';
 
@@ -16,10 +18,14 @@ export default function FormGetSticket() {
             dispatch(getMovieShowtimesAndCinemas(listCinema.maHeThongRap));
         }
     },[Film.tenPhim])
+
+    const onChange = (date, dateString)=>{
+
+    }
     console.log('listFilm',listFilm);
-    console.log('Film',Film);
-    console.log('Rap Chieu', Cinema);
-    console.log('listCinema',listCinema.heThongRapChieu);
+    // console.log('Film',Film);
+    // console.log('Rap Chieu', Cinema);
+    // console.log('listCinema',listCinema.heThongRapChieu);
     // console.log('xuatChieu',listMovieShowTimes);
     const renderFilm = () =>{
         let arrListFilm = [];
@@ -36,29 +42,56 @@ export default function FormGetSticket() {
     const renderCinema = () =>{
         return listCinema.heThongRapChieu?.map((htr,index)=>{
             return htr.cumRapChieu?.map((cr,index)=>{
-                return  <a className="dropdown-item" key={index} onClick={()=>{
-                    dispatch({
-                        type:'CHOOSE_CINEMA',
-                        tenCumRap:cr.tenCumRap
-                    })
-                }}  ><img className="mr-1" src={htr.logo} width={50} height={50}/>{cr.tenCumRap}</a>
+                if(Film.tenPhim == ''){
+                    return <a className="dropdown-item">Vui lòng chọn phim</a>
+                }else{
+                    return  <a className="dropdown-item" key={index} onClick={()=>{
+                        dispatch({
+                            type:'CHOOSE_CINEMA',
+                            nameCinema:cr.tenCumRap,
+                            codeCinema:cr.maCumRap
+                        })
+                    }}  ><img className="mr-1" src={htr.logo} width={50} height={50}/>{cr.tenCumRap}</a>
+                }
             })
             
         });
     }
+    
+    const setColor = (codeCinema) =>{
+        let color="red";
+        if(codeCinema.indexOf("cns") !== -1 ){
+            return  color="purple";
+        }
+        if(codeCinema.indexOf("cgv") !== -1){
+            return  color="red";
+        }
+        if(codeCinema.indexOf("bhd") !== -1){
+            return  color="green";
+        }
+        if(codeCinema.indexOf("glx") !== -1){
+            return  color="volcano";
+        }
+        if(codeCinema.indexOf("megags") !== -1){
+            return color="gold";
+        }
+        return color;
+    }
     const renderXuatChieu = () =>{
-        // let arrXuatChieu = [];
-        // for(let i = 0; i < listCinema.heThongRapChieu.length; i++){
-        //     for(let j = 0; j < listCinema.heThongRapChieu[i].length; j++){
-        //         if(listCinema.heThongRapChieu[i][j].tenCumRap == Cinema){
-        //             for(let h = 0; h < listCinema.heThongRapChieu[i][j].length; h++){
-        //                 let arrData = <a className="dropdown-item" href="#">{listCinema.heThongRapChieu[i][j][h].ngayChieuGioChieu}</a>
-        //                 arrXuatChieu.push(arrData);
-        //             }
-        //         }
-        //     }
-        // }
-        // return arrXuatChieu;
+        return listCinema.heThongRapChieu?.map((htr, index)=>{
+            return htr.cumRapChieu?.map((crc, index) => {
+                if(crc.maCumRap == Cinema.codeCinema){
+                    return crc.lichChieuPhim?.map((lcp, index)=>{
+                        return <a style={{padding:'0'}} key={index} onClick={()=>{
+                            dispatch({
+                                type:'CHOOSE_MOVIE_SHOW_TIME',
+                                showTimes:lcp.ngayChieuGioChieu
+                            })
+                        }} className="dropdown-item" ><Tag  key={index} style={{width:'95%'}} color={setColor(crc.maCumRap)}  >{moment(lcp.ngayChieuGioChieu).format('MMMM Do YYYY, h:mm:ss a')} </Tag></a> 
+                    })
+                }
+            })
+        })
     }
     return (
         <div>
@@ -68,7 +101,7 @@ export default function FormGetSticket() {
                             <div className="dropdown" >
                                 <div className="selectMenu" style={{backgroundImage:"url('./images/dropdown-icon.png')"}}></div>
                                 <div className="dropdown-title pl-4 pr-2 py-2" href="#" role="button" id="dropdownMenuFilm" data-toggle="dropdown"  aria-expanded="false">
-                                    {Film.tenPhim}
+                                    {Film.tenPhim !== '' ? Film.tenPhim : 'Phim'}
                                 </div>
                                 <div className="dropdown-menu" aria-labelledby="dropdownMenuFilm">
                                     {renderFilm()}
@@ -80,31 +113,32 @@ export default function FormGetSticket() {
                             <div className="dropdown ">
                                 <div className="selectMenu" style={{backgroundImage:"url('./images/dropdown-icon.png')"}}></div>
                                 <div className="dropdown-title p-2"  href="#" role="button" id="dropdownMenuCinema" data-toggle="dropdown"  aria-expanded="false">
-                                    {Cinema} 
+                                    {Cinema.nameCinema !== '' ? Cinema.nameCinema : 'Rạp Chiếu'} 
                                 </div>
                                 <div className="dropdown-menu" style={{zIndex:'22'}} aria-labelledby="dropdownMenuCinema">
                                     {renderCinema()}
                                 </div>
                             </div>
                         </div>
-                        <div className="col-2 selectDate p-0">
+                        <div className="col-2 selectDate p-0" >
                             <div className="dropdown ">
                                 <div className="selectMenu" style={{backgroundImage:"url('./images/dropdown-icon.png')"}}></div>
                                 <div  className="dropdown-title p-2"  href="#" role="button" id="dropdownMenuDate" data-toggle="dropdown"  aria-expanded="false">
                                     Ngày Xem
                                 </div>
-                                <div className="dropdown-menu" aria-labelledby="dropdownMenuDate">
-                                    <a className="dropdown-item" href="#">Action</a>
-                                    <a className="dropdown-item" href="#">Another action</a>
-                                    <a className="dropdown-item" href="#">Something else here</a>
+                                <div className="dropdown-menu" style={{zIndex:'22'}} aria-labelledby="dropdownMenuCinema">
+                                    
                                 </div>
+                                {/* <DatePicker style={{width:'100%'}} placeholder="Ngày Xem" onChange={onChange} /> */}
+                                
+                                
                             </div>
                         </div>
                         <div className="col-2 selectMovieScreening p-0">
                             <div className="dropdown " >
                                 <div className="selectMenu" style={{backgroundImage:"url('./images/dropdown-icon.png')"}}></div>
                                 <div  className="dropdown-title p-2"  href="#" role="button" id="dropdownMenuScreening" data-toggle="dropdown"  aria-expanded="false">
-                                    {movieShowTimes.showTimes}
+                                    {movieShowTimes.showTimes !== '' ? moment(movieShowTimes.showTimes).format('MMMM Do YYYY, h:mm:ss a') : 'Xuất Chiếu'}
                                 </div>
                                 <div className="dropdown-menu" aria-labelledby="dropdownMenuScreening">
                                    {renderXuatChieu()}
