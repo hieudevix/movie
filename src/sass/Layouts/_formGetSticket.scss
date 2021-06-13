@@ -53,13 +53,13 @@
                 max-height: 300px;
                 overflow-y: scroll;
                 transform: translate3d(0px, 35px, 0px)!important;
-                z-index: 20;
+                z-index: 10000 !important;
+                position: fixed;
+                color:red !important;
                 min-width: 160px;
                 left:0 !important;
                 top:0 !important;
-                // .dropdown-item{
-                //     font-weight: 500;
-                // }
+                box-shadow: 0 6px 12px rgb(221, 218, 218);
             }
            .selectMenu{
                position: absolute;

@@ -10,7 +10,7 @@
                 font-size: 20px;
                 color: $color-black-0;
                 font-weight: 500;
-                transition: 0.4s;
+                transition: 0.2s;
                 &.active {
                     font-size: 24px;
                     color: $color-red-0;
@@ -22,7 +22,30 @@
         }
     }
     .movie__tab__item {
-        .wrapSlick .slick-prev {
+        .slick-next:before, .slick-prev:before {
+            font-size: 0;
+        }
+        #nav-showing{
+            .card{
+                border: none;
+                img{
+                    border-radius: 5px !important;
+                    height:300px !important;
+                }
+                .card-body{
+                    span#age__movie{
+                        font-size: 14px;
+                        background-color: #fb4226;
+                        border-radius: 4px;
+                        padding: 0 5px;
+                        color: #fff;
+                        min-width: 33px;
+                        text-align: center;
+                        display: inline-block;
+                    }
+                }
+                
+            }
         }
         button.slick-arrow.slick-prev {
             position: absolute;
@@ -32,9 +55,9 @@
             transform: translateY(-50%);
             background-repeat: no-repeat;
             background-position:center;
-            z-index: 2;
+            z-index: 20;
             opacity: .5;
-            left: -100px;
+            left: -70px;
             height: 100px;
             width: 50px;
             background-color: transparent;
@@ -47,9 +70,9 @@
             transform: translateY(-50%);
             background-repeat: no-repeat;
             background-position:center;
-            z-index: 2;
+            z-index: 20;
             opacity: .5;
-            right: -100px;
+            right: -70px;
             height: 100px;
             width: 50px;
             background-color: transparent;

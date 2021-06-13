@@ -23,9 +23,10 @@ export default function Tab() {
     const renderMovieShowing = () => {
         return listFilmShowing.map((f, index) => {
             return  <div className="card col-3 p-4" key={index}>
-                <img className="card-img-top" src={f.hinhAnh} className="w-100 d-block" style={{height:'300px'}}  alt />
+                <img className="card-img-top d-block" src={f.hinhAnh}    alt />
                 <div className="card-body">
-                    <p className="card-text">{f.tenPhim}</p>
+                    <span id="age__movie " className="mr-1">C18</span>
+                    <span className="card-text">{f.tenPhim}</span>
                 </div>
             </div>
         })
@@ -34,7 +35,7 @@ export default function Tab() {
         <div className="movie__tab">
             <nav className="movie__tab__title">
                 <div className="nav nav-tabs tab__tittle__item" id="nav-tab" role="tablist" >
-                    <a className="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-showing" role="tab" aria-controls="nav-home" aria-selected="true">Đang Chiếu</a>
+                    <a className="nav-item nav-link active mr-3" id="nav-home-tab" data-toggle="tab" href="#nav-showing" role="tab" aria-controls="nav-home" aria-selected="true">Đang Chiếu</a>
                     <a className="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-comingSoon" role="tab" aria-controls="nav-profile" aria-selected="false">Sắp Chiếu</a>
                 </div>
             </nav>
@@ -44,7 +45,11 @@ export default function Tab() {
                         {renderMovieShowing()}
                     </Slider>
                 </div>
-                <div className="tab-pane fade" id="nav-comingSoon" role="tabpanel" aria-labelledby="nav-profile-tab">coming soon</div>
+                <div className="tab-pane fade" id="nav-comingSoon" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <Slider id="showFilm" {...settings}>
+                        {renderMovieShowing()}
+                    </Slider>
+                </div>
             </div>
         </div>
 
