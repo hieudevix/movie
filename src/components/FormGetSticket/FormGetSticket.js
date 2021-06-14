@@ -43,7 +43,8 @@ export default function FormGetSticket() {
     const renderCinema = () =>{
         return listCinema.heThongRapChieu?.map((htr,index)=>{
             return htr.cumRapChieu?.map((cr,index)=>{
-                if(Film.tenPhim == ''){
+                console.log('stateFilm',Film.tenPhim);
+                if(Film.tenPhim == ""){
                     return <a className="dropdown-item">Vui lòng chọn phim</a>
                 }else{
                     return  <a className="dropdown-item" key={index} onClick={()=>{

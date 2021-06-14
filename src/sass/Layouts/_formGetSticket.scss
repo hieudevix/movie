@@ -53,7 +53,7 @@
                 max-height: 300px;
                 overflow-y: scroll;
                 transform: translate3d(0px, 35px, 0px)!important;
-                z-index: 10000 !important;
+                z-index: 1000 !important;
                 position: fixed;
                 color:red !important;
                 min-width: 160px;
@@ -69,7 +69,6 @@
                width: 13px;
                background-size: cover;
                background-repeat: no-repeat;
-            //    background-image: url('./images/dropdown-icon.png');
            }
         }
     }

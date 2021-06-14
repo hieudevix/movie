@@ -51,7 +51,7 @@ export default function Header() {
 
     const renderLocation = () => {
         return listLocation.map((value, index) => {
-            return <a className="dropdown-item" href="#" key={index} onClick={() => {
+            return <a className="dropdown-item"  key={index} onClick={() => {
                 dispatch({
                     type: "SET_LOCATION",
                     location: value
