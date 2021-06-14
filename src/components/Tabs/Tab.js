@@ -14,8 +14,9 @@ export default function Tab() {
     console.log('listFimShowing', listFilmShowing);
     const settings = {
         // centerMode: true,
-        // infinite: true,
-        // centerPadding: "60px",
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
         slidesToShow: 1,
         speed: 500,
         rows: 2,
