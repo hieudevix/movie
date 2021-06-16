@@ -2,6 +2,7 @@ import { Group } from 'antd/lib/avatar';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
+import { Calendar } from 'antd';
 import {Tag, DatePicker} from 'antd';
 import { getListFilmForm, getMovieShowtimesAndCinemas } from '../../redux/actions/FormGetSticketActions';
 import { getCinemaFilmForm } from '../../redux/actions/FormGetSticketActions';
@@ -43,10 +44,7 @@ export default function FormGetSticket() {
     const renderCinema = () =>{
         return listCinema.heThongRapChieu?.map((htr,index)=>{
             return htr.cumRapChieu?.map((cr,index)=>{
-                console.log('stateFilm',Film.tenPhim);
-                if(Film.tenPhim == ""){
-                    return <a className="dropdown-item">Vui lòng chọn phim</a>
-                }else{
+                // console.log('stateFilm',Film.tenPhim);
                     return  <a className="dropdown-item" key={index} onClick={()=>{
                         dispatch({
                             type:'CHOOSE_CINEMA',
@@ -54,9 +52,7 @@ export default function FormGetSticket() {
                             codeCinema:cr.maCumRap
                         })
                     }}  ><img className="mr-1" src={htr.logo} width={50} height={50}/>{cr.tenCumRap}</a>
-                }
             })
-            
         });
     }
     const setColor = (codeCinema) =>{
@@ -117,7 +113,8 @@ export default function FormGetSticket() {
                                     {Cinema.nameCinema !== '' ? Cinema.nameCinema : 'Rạp Chiếu'} 
                                 </div>
                                 <div className="dropdown-menu" style={{zIndex:'22'}} aria-labelledby="dropdownMenuCinema">
-                                    {renderCinema()}
+
+                                    {Film.tenPhim === '' ? <a className="dropdown-item">Vui lòng chọn phim!</a> : renderCinema()}
                                 </div>
                             </div>
                         </div>
@@ -128,7 +125,7 @@ export default function FormGetSticket() {
                                     Ngày Xem
                                 </div>
                                 <div className="dropdown-menu" style={{zIndex:'22'}} aria-labelledby="dropdownMenuCinema">
-                                    
+                                    {Film.tenPhim === '' ? <a className="dropdown-item">Vui lòng chọn phim!</a> : <Calendar fullscreen={false}  />}
                                 </div>
                                 {/* <DatePicker style={{width:'100%'}} placeholder="Ngày Xem" onChange={onChange} /> */}
                             </div>
@@ -140,7 +137,7 @@ export default function FormGetSticket() {
                                     {movieShowTimes.showTimes !== '' ? moment(movieShowTimes.showTimes).format('MMMM Do YYYY, h:mm:ss a') : 'Xuất Chiếu'}
                                 </div>
                                 <div className="dropdown-menu" aria-labelledby="dropdownMenuScreening">
-                                   {renderXuatChieu()}
+                                   {Film.tenPhim === '' ? <a className="dropdown-item">Vui lòng chọn phim!</a> : renderXuatChieu()}
                                 </div>
                             </div>
                         </div>

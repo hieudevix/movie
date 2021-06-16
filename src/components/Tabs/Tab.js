@@ -119,6 +119,7 @@ export default function Tab() {
                 </div>
             </div>
             <div className="container back__news" style={{backgroundImage:"url('./images/icons/back-news.png')"}}></div>
+            
         </div>
     )
 }
