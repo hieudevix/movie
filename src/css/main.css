@@ -423,4 +423,85 @@ html, body {
   width: 50px;
   background-color: transparent;
 }
+
+.info__cinema {
+  padding: 15px 15px 15px 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: relative;
+  opacity: .5;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.info__cinema.active {
+  opacity: 1;
+}
+
+.info__cinema:hover {
+  opacity: 1;
+}
+
+.info__cinema::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: calc(100% - 40px);
+  transform: translateX(-50%);
+  border-bottom: 1px solid #fff;
+  border-color: rgba(238, 238, 238, 0.88);
+}
+
+.info__cinema .wrapInfo {
+  padding-left: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.info__cinema .wrapInfo .infoTitle {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.info__cinema .wrapInfo .infoAdd {
+  font-size: 13px;
+  color: #9b9b9b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.info__cinema .wrapInfo .infoDetail {
+  color: #fb4226 !important;
+  font-size: 13px;
+}
+
+.ant-row.listCinemas {
+  border: 1px solid #ebebec;
+}
+
+.ant-row.listCinemas .ant-tabs-nav-list .ant-tabs-tab {
+  opacity: 0.5 !important;
+}
+
+.ant-row.listCinemas .ant-tabs-nav-list .ant-tabs-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: calc(100% - 40px);
+  transform: translateX(-50%);
+  border-bottom: 1px solid #ebebec;
+  border-color: rgba(238, 238, 238, 0.88);
+}
+
+.ant-row.listCinemas .ant-tabs-nav-list .ant-tabs-tab.ant-tabs-tab-active {
+  opacity: 1 !important;
+}
+
+.ant-row.listCinemas .ant-card-body {
+  display: flex !important;
+}
 /*# sourceMappingURL=main.css.map */
