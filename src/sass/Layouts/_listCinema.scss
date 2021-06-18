@@ -35,7 +35,7 @@
             // position: absolute;
             // left: 10px;
             // right: 0;
-            // width: 190px !important;
+            width: 190px !important;
             font-size: 13px;
             color:$color-gray-0;
             overflow: hidden;
@@ -65,10 +65,60 @@
                 border-bottom: 1px solid #ebebec;
                 border-color: rgba(238,238,238,.88);
             }
+            &:hover{
+                opacity: 1 !important;
+            }
             &.ant-tabs-tab-active{
                 opacity: 1 !important;
             }
         }
+        
+    }
+    .ant-col.ant-col-16 {
+        border-left:1px solid #ebebec;
+        .ant-menu-submenu-title {
+            height: 50px;
+            .movie__listCinema {
+                display: flex !important;
+                max-width: 40px;
+                .typeAgeMovieCinema{
+                    color:$color-white-0;
+                    background-color: $color-red-0;
+                    border-radius: 4px;
+                    min-width: 33px;
+                    text-align: center;
+                    display: inline-block;
+                    margin-right: 8px;
+                }
+                .infoFilmDetail{
+                    position: relative;
+                    .nameMovieCinema{
+                        position: absolute;
+                        top:-10px;
+                        height: 20px;
+                        font-weight: 500;
+                    }
+                    .infoFilmMovieCinema{
+                        position: absolute;
+                        top:10px;
+                        height: 20px;
+                        font-size: 12px;
+                        color:$color-gray-0;
+                    }
+                }
+                
+            }
+            
+        }
+        
+        .ant-menu.ant-menu-sub.ant-menu-inline{
+            // display: flex !important;
+            // flex-flow: wrap !important;
+            li.ant-menu-item.ant-menu-item-only-child {
+                padding:0 10px !important;
+            }
+        }
+        
         
     }
     .ant-card-body {

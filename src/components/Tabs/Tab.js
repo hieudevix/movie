@@ -11,7 +11,7 @@ export default function Tab() {
     useEffect(() => {
         dispatch(getListFilm());
     }, []);
-    console.log('listFimShowing', listFilmShowing);
+    // console.log('listFimShowing', listFilmShowing);
     const settings = {
         // centerMode: true,
         infinite: true,
@@ -99,7 +99,7 @@ export default function Tab() {
         })
     }
     return (
-        <div className="movie__tab">
+        <div className="movie__tab" style={{backgroundImage:'./images/background.png', backgroundSize:'100%', height:'100%'}}>
             <nav className="movie__tab__title mb-4">
                 <div className="nav nav-tabs tab__tittle__item" id="nav-tab" role="tablist" >
                     <a className="nav-item nav-link active mr-3" id="nav-home-tab" data-toggle="tab" href="#nav-showing" role="tab" aria-controls="nav-showing" aria-selected="true">Đang Chiếu</a>

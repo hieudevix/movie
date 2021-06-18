@@ -2,7 +2,7 @@
 
 const stateDefault = {
     cinemaCodeList:[{cinemaCode:"BHDStar"},{cinemaCode:"CGV"},{cinemaCode:"CineStar"},{cinemaCode:"Galaxy"},{cinemaCode:"LotteCinima"},{cinemaCode:"MegaGS"}],
-    listCinemas:[],
+    cinemaDetailChoose:{ codeCinema:""},
     listCinemasDetail:[]
 }
 
@@ -16,8 +16,12 @@ export const ListCinemasReducer = (state=stateDefault,action)=>{
             state.listCinemasDetail = arrayListCinema;
 
             // state.listCinemas = action.listCinemas;
-            return {...state}
+            return {...state};
 
+        }
+        case 'CHOOSE_CINEMA_DETAIL':{
+            state.cinemaDetailChoose.codeCinema= action.codeCinema
+            return {...state};
         }
         default: return{...state};
     }
