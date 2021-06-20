@@ -1,0 +1,23 @@
+.footer{
+    background-color: #222;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #949494;
+    .footer__info{
+        .footer__partner{
+            .row{
+                margin-bottom: 20px;
+                a{
+                    padding-right: 20px;
+                    img{
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 30px;
+                    }
+                }
+                
+            }
+            
+        }
+    }
+}

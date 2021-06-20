@@ -21,16 +21,42 @@ export default function ListCinemas() {
             dispatch(getListCinemaDetail(cinemaCodeList[i].cinemaCode));
         }
     }, [])
+    // const renderListCinema = () => {
+    //     return listCinemasDetail.map((listCinema, index) => {
+    //         return listCinema?.map((lc, indexs) => {
+    //             return <TabPane tab={<img src={lc.logo} width={50} height={50} />} key={index}>
+    //                 {lc.lstCumRap.map((lcd, index) => {
+    //                     if (index < 6) {
+    //                         return <div className={`info__cinema ${isActive ? '' : 'active'}`} key={index} onClick={() => {
+    //                             dispatch({ type: "CHOOSE_CINEMA_DETAIL", codeCinema: lcd.maCumRap })
+    //                             // console.log(lcd.maCumRap)
+    //                         }}>
+    //                             <img src={lc.logo} width={50} height={50} />
+    //                             <div className="wrapInfo" >
+    //                                 <div className="infoTitle">
+    //                                     {lcd.tenCumRap}
+    //                                 </div>
+    //                                 <div className="infoAdd">
+    //                                     {lcd.diaChi}
+    //                                 </div>
+    //                                 <div className="infoDetail">
+    //                                     [chi tiết]
+    //                                 </div>
+    //                             </div>
+    //                         </div>
+    //                     }
+    //                 })}
+    //             </TabPane>
+    //         })
+    //     })
+    // }
     const renderListCinema = () => {
         return listCinemasDetail.map((listCinema, index) => {
             return listCinema?.map((lc, indexs) => {
-                return <TabPane tab={<img src={lc.logo} width={50} height={50} />} key={index}>
+                return <TabPane  tab={<img src={lc.logo} width={50} height={50} />} key={index}><span className="tab__info"><Tabs  tabPosition='left'>
                     {lc.lstCumRap.map((lcd, index) => {
                         if (index < 6) {
-                            return <div className={`info__cinema ${isActive ? '' : 'active'}`} key={index} onClick={() => {
-                                dispatch({ type: "CHOOSE_CINEMA_DETAIL", codeCinema: lcd.maCumRap })
-                                // console.log(lcd.maCumRap)
-                            }}>
+                            return <TabPane  tab={<div className={`info__cinema`} key={index} >
                                 <img src={lc.logo} width={50} height={50} />
                                 <div className="wrapInfo" >
                                     <div className="infoTitle">
@@ -43,10 +69,36 @@ export default function ListCinemas() {
                                         [chi tiết]
                                     </div>
                                 </div>
-                            </div>
+                            </div>} key={index}> 
+                            <Menu style={{paddingLeft:'10px'}} key={indexs}
+                            style={{ width: '100%' }}
+                            mode="inline"
+                             >
+                                 {lcd.danhSachPhim.map((dsp, indexsss) => {
+                                if(indexsss < 6){
+                                    return <SubMenu key={indexsss} icon={<img src={dsp.hinhAnh} width={40} height={40} style={{borderRadius:'40px'}}/>} title={<div className="movie__listCinema" >
+                                        <div className="typeAgeMovieCinema">C{createRandomNumber(18,12)}</div>
+                                        <div className="infoFilmDetail">
+                                            <div className="nameMovieCinema" >{dsp.tenPhim}</div>
+                                            <div className="infoFilmMovieCinema">{createRandomNumber(120, 90)} phút - {createRandomNumber(9.7, 3.4).toFixed(1)} IMDb</div>
+                                        </div>
+                                       
+                                    </div>}>
+                                    {dsp.lstLichChieuTheoPhim.map((ds, indexssss) => {
+                                        if(indexssss < 6){
+                                            return <Menu.Item key={indexssss}> 
+                                                <Alert message={`Giờ Chiếu: ${moment(ds.ngayChieuGioChieu).format('hh:mm A')}, Giá Vé: ${formatNum(ds.giaVe)} VNĐ`} type="info" showIcon />
+                                            </Menu.Item>
+                                        }
+                                    })}
+                                </SubMenu>
+                                }
+                            })}
+                             </Menu>
+                        </TabPane>
                         }
                     })}
-                </TabPane>
+                </Tabs></span> </TabPane>
             })
         })
     }
@@ -94,7 +146,7 @@ export default function ListCinemas() {
     }
     return (
         <div className="container movie__listCinemas">
-            <Row className="listCinemas">
+            {/* <Row className="listCinemas">
                 <Col span={8}>
                     <Tabs tabPosition='left'>
                         {renderListCinema()}
@@ -103,7 +155,15 @@ export default function ListCinemas() {
                 <Col span={16}>
                     {renderMovieSchedule()}
                 </Col>
+            </Row> */}
+            <Row className="listCinemas">
+                <Col span={24}>
+                    <Tabs tabPosition='left'>
+                        {renderListCinema()}
+                    </Tabs>
+                </Col>
             </Row>
+            <div className="container back__news" style={{backgroundImage:"url('./images/icons/back-news.png')"}}></div>
         </div>
     )
 }

@@ -2,11 +2,7 @@
     padding-top: 75px;
     // background: url('../../asset/background.png') no-repeat;
     // margin:0 auto;
-    .back__news{
-        padding-top:120px;
-        background-repeat: no-repeat;
-        background-size: 100%;
-    }
+    
     .movie__tab__title {
         .tab__tittle__item {
             justify-content: center;
@@ -151,4 +147,9 @@
             background-color: transparent;
         }
     }
+}
+.back__news{
+    padding-top:120px;
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
