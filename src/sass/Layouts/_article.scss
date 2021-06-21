@@ -1,0 +1,91 @@
+.article{
+    padding-top: 25px;
+    .article__tab{
+        .article__tab__item{
+            justify-content: center;
+            align-items: center;
+            border: 0;
+            .nav-item {
+                border: 0;
+                font-size: 20px;
+                color: $color-black-0;
+                font-weight: 500;
+                transition: 0.2s;
+                &.active {
+                    font-size: 24px;
+                    color: $color-red-0;
+                }
+                &:hover {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+    .article__content{
+        .list__film{
+            .newsMovie{
+                .newsMovie__item{
+                    a{
+                        img{
+                            height:300px;
+                            border-radius: 5px;
+                        }
+                    }
+                    .articleTitle{
+                        font-size: 15px;
+                        font-weight: $fw-3;
+                        height:42px;
+                        margin-bottom:5px;
+                        color:$color-black-0;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        &:hover{
+                            color:$color-red-0;
+                        }
+                    }
+                    .articleContent{
+                        height:55px;
+                    }
+                    .feedBack{
+                        img{
+                            width: 20px;
+                            height: 20px;
+                            margin-right:20px
+                        }
+                    }
+                }
+            }
+            .newsMovieS{
+                .newsMovieS__item{
+                    a{
+                        img{
+                            border-radius: 5px;
+                        }
+                    }
+                    .articleTitle{
+                        font-size: 15px;
+                        font-weight: $fw-3;
+                        height:22px;
+                        margin-bottom:5px;
+                        color:$color-black-0;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        &:hover{
+                            color:$color-red-0;
+                        }
+                    }
+                    .articleContent{
+                        height:55px;
+                    }
+                    .feedBack{
+                        img{
+                            width: 20px;
+                            height: 20px;
+                            margin-right:20px
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

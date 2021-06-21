@@ -9,6 +9,7 @@ import Tab from './components/Tabs/Tab';
 import ListCinemas from './components/ListCinemas/ListCinemas';
 import Introduce from './components/Introduce/Introduce';
 import Footer from './components/Footer/Footer';
+import Article from './components/Article/Article';
 
 // Cấu hình thư viện điều hướng trang
 export const history = createBrowserHistory();
@@ -20,6 +21,7 @@ function App() {
       <Carousel/>
       <Tab/>
       <ListCinemas/>
+      <Article/>
       <Introduce/>
       <Footer/>
       <Loader/>

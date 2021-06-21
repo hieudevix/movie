@@ -99,11 +99,12 @@ export default function Tab() {
         })
     }
     return (
-        <div className="movie__tab" style={{backgroundImage:'./images/background.png', backgroundSize:'100%', height:'100%'}}>
+        <div className="movie__tab"  >
+            {/* style={{backgroundImage:"url(./images/background.png) ", backgroundSize:'100%', height:'100%', zIndex:'-1'}} */}
             <nav className="movie__tab__title mb-4">
                 <div className="nav nav-tabs tab__tittle__item" id="nav-tab" role="tablist" >
-                    <a className="nav-item nav-link active mr-3" id="nav-home-tab" data-toggle="tab" href="#nav-showing" role="tab" aria-controls="nav-showing" aria-selected="true">Đang Chiếu</a>
-                    <a className="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-comingSoon" role="tab" aria-controls="nav-coming" aria-selected="false">Sắp Chiếu</a>
+                    <a className="nav-item tix-tab nav-link active mr-3" id="nav-home-tab" data-toggle="tab" href="#nav-showing" role="tab" aria-controls="nav-showing" aria-selected="true">Đang Chiếu</a>
+                    <a className="nav-item tix-tab nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-comingSoon" role="tab" aria-controls="nav-coming" aria-selected="false">Sắp Chiếu</a>
                 </div>
             </nav>
             <div className="tab-content container movie__tab__item" id="nav-tabContent">

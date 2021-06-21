@@ -6,6 +6,7 @@
     .movie__tab__title {
         .tab__tittle__item {
             justify-content: center;
+            align-items: center;
             border: 0;
             .nav-item {
                 border: 0;
@@ -21,7 +22,11 @@
                     font-size: 24px;
                 }
             }
+            
         }
+    }
+    .slick-list {
+        z-index: -1;
     }
     .movie__tab__item {
         .slick-next:before, .slick-prev:before {

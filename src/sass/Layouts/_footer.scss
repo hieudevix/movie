@@ -4,20 +4,63 @@
     padding-bottom: 20px;
     color: #949494;
     .footer__info{
+        a{
+            font-size: 12px;
+            font-weight: 700;
+            color: #949494;
+            transition: all .2s;
+            &:hover{
+                color:$color-white-0;
+            }
+        }
+        
         .footer__partner{
             .row{
                 margin-bottom: 20px;
                 a{
+                    
                     padding-right: 20px;
                     img{
                         width: 30px;
                         height: 30px;
                         border-radius: 30px;
+                        &:hover{
+                            opacity: .7;
+                        }
                     }
                 }
                 
             }
             
+        }
+        .footer__app{
+            img{
+                width: 30px;
+                height: 30px;
+                margin-right: 10px;
+            }
+        }
+    }
+    .footer__title{
+        color: $color-white-0;
+        font-size: 13px;
+    }
+    #hrFooter{
+        border-top: 1px solid #4a4a4a;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .footer__add{
+        .address__detail{
+            p{
+                margin-bottom: 0;
+                font-size: 12px;
+                font-weight: 700;
+            }
+            .footer__title{
+                font-size: 14px;
+                font-weight: unset;
+            }
         }
     }
 }

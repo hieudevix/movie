@@ -7,13 +7,15 @@ export default function Introduce() {
         dots: true,
         infinite: true,
         speed: 500,
+        autoplay: true,
+         autoplaySpeed: 2000,
         slidesToShow: 1,
         slidesToScroll: 1
       };
     const renderSlide = () =>{
         let arrSlide = [];
         for(let i = 1; i < 17; i++){
-            let arrImng = <div><img className="carousel__img__item"  src={`./images/icons/slide/slide${i}.jpg`}/></div>
+            let arrImng = <div style={{overflow:'hidden'}}><img className="img-responsive carousel__img__item"  src={`./images/icons/slide/slide${i}.jpg`}/></div>
             arrSlide.push(arrImng);
         }
         return arrSlide

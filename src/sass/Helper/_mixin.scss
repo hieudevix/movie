@@ -2,6 +2,21 @@
 
 
 
+@mixin styleTab($color, $border, $font-size, $font-weight, $transition){
+    color:$color;
+    border:$border;
+    font-size: $font-size;
+    font-weight: $font-weight;
+    transition: $transition;
+    &.active {
+        font-size: $font-size + 4;
+        color: $color-red-0;
+    }
+    &:hover {
+        font-size: $font-size + 4;
+    }
+}
+
 // screen : tên màn hình
 
 @mixin responsive($screen){

@@ -90,6 +90,9 @@ export default function FormGetSticket() {
             })
         })
     }
+    const onPanelChange = (value, mode) => {
+        console.log(value, mode);
+      }
     return (
         <div>
             <div className="container formGetTicket" >
@@ -125,7 +128,7 @@ export default function FormGetSticket() {
                                     Ngày Xem
                                 </div>
                                 <div className="dropdown-menu" style={{zIndex:'22'}} aria-labelledby="dropdownMenuCinema">
-                                    {Film.tenPhim === '' ? <a className="dropdown-item">Vui lòng chọn phim!</a> : <Calendar fullscreen={false}  />}
+                                    {Film.tenPhim === '' ? <a className="dropdown-item">Vui lòng chọn phim!</a> : <Calendar fullscreen={false} onPanelChange={onPanelChange} />}
                                 </div>
                                 {/* <DatePicker style={{width:'100%'}} placeholder="Ngày Xem" onChange={onChange} /> */}
                             </div>
