@@ -7,6 +7,8 @@
 // import Base
 @import './Base/reset';
 
+
+
 // import Layouts
 
 @import './Layouts/header';
@@ -18,5 +20,8 @@
 @import './Layouts/footer';
 @import './Layouts/article';
 
+// import Pages
+@import './Pages/login';
+@import './Pages/register';
 //Components
 @import './Components/tabComponent';   

@@ -1,0 +1,81 @@
+.register{
+    background:url('../asset/bg2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    padding:10% 0;
+    .registerForm{
+        width:30%;
+        margin:0 auto;
+        height: auto;
+        padding:50px 20px 0 20px;
+        border-radius: 10px;
+        background-color: $color-white-0;
+        input{
+            border:none;
+        }
+        .input__line{
+            background:none;
+            border-bottom: 1.5px solid $color-red-0;
+            font-size: 15px;
+            font-weight: $fw-2;
+            box-shadow: none;
+            &::after{
+                content:'';
+                width: 100px;
+                height: 3px;
+                display: block;
+                background:linear-gradient(to right,#f8a193,$color-red-0) ;
+                box-shadow: 0 0 20px 0 #f8a193;
+                transition: 0.5s;
+            }
+            &:hover{
+                &::after{
+                    width: 100%;
+                }
+                
+            }
+        }
+        .buttonRegister{
+            margin-top:10px;
+            width: 100%;
+            font-size: 17px;
+            border-radius: 5px;
+            padding:5px 30px;
+            border: 1px solid $color-red-0;
+            color: $color-white-0;
+            background-color: $color-red-0;
+            transition: .5s;
+            &:hover{
+                border: 1px solid $color-gray-0;
+                color:$color-gray-0;
+                background-color: $color-white-0;
+            }
+        }
+        .registerLink{
+            color:$color-red-0;
+            font-weight: $fw-1;
+        }
+        .ant-picker-input {
+            &>input{
+                font-size: 15px;
+                font-weight: $fw-2;
+            }
+        }
+        ::placeholder {
+            color:#495057
+          }
+        .ant-picker {
+            border:none;
+            border-bottom: 1px solid $color-red-0 ;
+            padding:7px 11px 4px;
+        }
+        .ant-picker-focused {
+            border: 0 !important;
+            box-shadow: none;
+            border-bottom: 1px solid $color-red-0 !important;
+        }
+    }
+}

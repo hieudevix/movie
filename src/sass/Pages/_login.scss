@@ -1,0 +1,72 @@
+.login{
+    background:url('../asset/bg2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    padding:10% 0;
+    .loginForm{
+        // background-image:url('../asset/background.png');
+        // background-repeat: no-repeat;
+        // background-size: cover;
+        // background-position: center;
+        // background:linear-gradient(to top, #e6c5c5, #fff5f5);
+        width:25%;
+        margin:0 auto;
+        height: auto;
+        padding:50px 20px 0 20px;
+        border-radius: 10px;
+        background-color: $color-white-0;
+        .input__line{
+            background:none;
+            border-bottom: 1.5px solid $color-red-0;
+            font-size: 15px;
+            font-weight: $fw-2;
+            box-shadow: none;
+            &::after{
+                content:'';
+                width: 100px;
+                height: 3px;
+                display: block;
+                background:linear-gradient(to right,#f8a193,$color-red-0) ;
+                box-shadow: 0 0 20px 0 #f8a193;
+                transition: 0.5s;
+            }
+            &:hover{
+                &::after{
+                    width: 100%;
+                }
+                
+            }
+        }
+        
+        .forgotPassword{
+            color:$color-red-0;
+            font-weight: $fw-1;
+        }
+        .registerLink{
+            color:$color-red-0;
+            font-weight: $fw-1;
+        }
+        .buttonLogin{
+            font-size: 17px;
+            border-radius: 5px;
+            padding:5px 30px;
+            border: 1px solid $color-red-0;
+            color: $color-white-0;
+            background-color: $color-red-0;
+            transition: .5s;
+            &:hover{
+                border: 1px solid $color-gray-0;
+                color:$color-gray-0;
+                background-color: $color-white-0;
+            }
+        }
+        input {
+            border: none;
+        }
+    }
+    
+}
+

@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 // import './App.css';
 import './css/main.css';
+import { Route, BrowserRouter, Switch, Router} from 'react-router-dom';
 import Loader from './components/Loader/Loader';
 import Header from './components/Header/Header';
 import Carousel from './components/Carousel/Carousel';
@@ -10,22 +11,29 @@ import ListCinemas from './components/ListCinemas/ListCinemas';
 import Introduce from './components/Introduce/Introduce';
 import Footer from './components/Footer/Footer';
 import Article from './components/Article/Article';
-
+import { UserTemplate } from './template/UserTemplate/UserTemplate';
+import Login from './pages/Login/Login';
+import Home from './pages/Home/Home';
+import Register from './pages/Register/Register';
+import PageNotFound from './pages/PageNotFound/PageNotFound';
 // Cấu hình thư viện điều hướng trang
 export const history = createBrowserHistory();
 
+
 function App() {
   return (
+    <BrowserRouter history={history}>
     <div className="App">
-      <Header/>
-      <Carousel/>
-      <Tab/>
-      <ListCinemas/>
-      <Article/>
-      <Introduce/>
-      <Footer/>
-      {/* <Loader/> */}
+      <Switch>
+        <UserTemplate path="/" exact component={Home} />
+        <UserTemplate path="/home" exact component={Home} />
+        <UserTemplate path="/login" exact component={Login}/>
+        <UserTemplate path="/register" exact component={Register}/>
+        <UserTemplate component={PageNotFound}/>
+
+      </Switch>
     </div>
+    </BrowserRouter>
   );
 }
 

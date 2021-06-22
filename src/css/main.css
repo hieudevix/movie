@@ -10,6 +10,10 @@ html, body {
   font-size: 14px;
 }
 
+html, body, #root, .App {
+  height: 100%;
+}
+
 @font-face {
   font-family: 'SF Regular';
   src: url("../asset/fonts/SF-UI-Display-Regular.otf");
@@ -876,62 +880,164 @@ html, body {
   margin-right: 20px;
 }
 
-.article .article__content .list__film .newsMovieS .listNews .listNewsItem {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 10px;
+.login {
+  background: url("../asset/bg2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  padding: 10% 0;
 }
 
-.article .article__content .list__film .newsMovieS .listNews .listNewsItem img {
-  width: 50px;
-  height: 50px;
-  border-radius: 5px;
-  margin-right: 10px;
+.login .loginForm {
+  width: 25%;
+  margin: 0 auto;
+  height: auto;
+  padding: 50px 20px 0 20px;
+  border-radius: 10px;
+  background-color: #fff;
 }
 
-.article .article__content .list__film .newsMovieS .listNews .listNewsItem a p {
-  color: black;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 20px;
-  font-family: "SF Medium";
-  height: 42px;
-  font-size: 19px !important;
-  -webkit-transition: color 0.2s;
-  transition: color 0.2s;
-  margin-bottom: 5px;
+.login .loginForm .input__line {
+  background: none;
+  border-bottom: 1.5px solid #fb4226;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: none;
 }
 
-.article .article__content .list__film .newsMovieS .listNews .listNewsItem a p:hover {
-  color: #fb4226;
-}
-
-.article .article__content .viewMoreButton {
-  text-align: center;
-}
-
-.article .article__content .viewMoreButton #btnNews {
-  font-size: 14px;
-  color: #949494;
-  font-family: "SF Regular";
-  border: 1px solid #949494;
-  border-radius: 4px;
-  text-align: center;
-  background: 0 0;
-  padding: 7px 25px;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-  margin: auto;
-  margin-top: 35px;
-  margin-bottom: 20px;
+.login .loginForm .input__line::after {
+  content: '';
+  width: 100px;
+  height: 3px;
   display: block;
+  background: linear-gradient(to right, #f8a193, #fb4226);
+  box-shadow: 0 0 20px 0 #f8a193;
+  transition: 0.5s;
 }
 
-.article .article__content .viewMoreButton #btnNews:hover {
+.login .loginForm .input__line:hover::after {
+  width: 100%;
+}
+
+.login .loginForm .forgotPassword {
+  color: #fb4226;
+  font-weight: 500;
+}
+
+.login .loginForm .registerLink {
+  color: #fb4226;
+  font-weight: 500;
+}
+
+.login .loginForm .buttonLogin {
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 5px 30px;
+  border: 1px solid #fb4226;
   color: #fff;
-  border-color: #fb4226;
   background-color: #fb4226;
+  transition: .5s;
+}
+
+.login .loginForm .buttonLogin:hover {
+  border: 1px solid #9b9b9b;
+  color: #9b9b9b;
+  background-color: #fff;
+}
+
+.login .loginForm input {
+  border: none;
+}
+
+.register {
+  background: url("../asset/bg2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  padding: 10% 0;
+}
+
+.register .registerForm {
+  width: 30%;
+  margin: 0 auto;
+  height: auto;
+  padding: 50px 20px 0 20px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.register .registerForm input {
+  border: none;
+}
+
+.register .registerForm .input__line {
+  background: none;
+  border-bottom: 1.5px solid #fb4226;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.register .registerForm .input__line::after {
+  content: '';
+  width: 100px;
+  height: 3px;
+  display: block;
+  background: linear-gradient(to right, #f8a193, #fb4226);
+  box-shadow: 0 0 20px 0 #f8a193;
+  transition: 0.5s;
+}
+
+.register .registerForm .input__line:hover::after {
+  width: 100%;
+}
+
+.register .registerForm .buttonRegister {
+  margin-top: 10px;
+  width: 100%;
+  font-size: 17px;
+  border-radius: 5px;
+  padding: 5px 30px;
+  border: 1px solid #fb4226;
+  color: #fff;
+  background-color: #fb4226;
+  transition: .5s;
+}
+
+.register .registerForm .buttonRegister:hover {
+  border: 1px solid #9b9b9b;
+  color: #9b9b9b;
+  background-color: #fff;
+}
+
+.register .registerForm .registerLink {
+  color: #fb4226;
+  font-weight: 500;
+}
+
+.register .registerForm .ant-picker-input > input {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.register .registerForm ::placeholder {
+  color: #495057;
+}
+
+.register .registerForm .ant-picker {
+  border: none;
+  border-bottom: 1px solid #fb4226;
+  padding: 7px 11px 4px;
+}
+
+.register .registerForm .ant-picker-focused {
+  border: 0 !important;
+  box-shadow: none;
+  border-bottom: 1px solid #fb4226 !important;
 }
 
 .tix-tab {
