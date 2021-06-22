@@ -26,7 +26,7 @@
         }
     }
     .slick-list {
-        z-index: -1;
+        // z-index: -10;
     }
     .movie__tab__item {
         .slick-next:before, .slick-prev:before {
@@ -46,6 +46,7 @@
                 &:hover{
                     .film__img{
                         .film__hover{
+                            z-index: 100;
                             position: absolute;
                             top:0;
                             background-image: linear-gradient(to top,#000,transparent 100%) ;
@@ -55,6 +56,7 @@
                         
                     }
                     .playButton{
+                        z-index: 10;
                         opacity: 1;
                     }
                 }

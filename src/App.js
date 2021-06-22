@@ -24,7 +24,7 @@ function App() {
       <Article/>
       <Introduce/>
       <Footer/>
-      <Loader/>
+      {/* <Loader/> */}
     </div>
   );
 }

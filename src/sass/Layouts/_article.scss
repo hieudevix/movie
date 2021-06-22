@@ -1,7 +1,9 @@
-.article{
-    padding-top: 25px;
-    .article__tab{
-        .article__tab__item{
+.article {
+    padding: 25px 0;
+    width: 80% !important;
+    margin: 0 auto;
+    .article__tab {
+        .article__tab__item {
             justify-content: center;
             align-items: center;
             border: 0;
@@ -21,69 +23,156 @@
             }
         }
     }
-    .article__content{
-        .list__film{
-            .newsMovie{
-                .newsMovie__item{
-                    a{
-                        img{
-                            height:300px;
+    .article__content {
+        .list__film {
+            .newsMovie {
+                margin-bottom: 20px;
+                .newsMovie__item {
+                    a {
+                        img {
+                            height: 250px;
                             border-radius: 5px;
                         }
                     }
-                    .articleTitle{
+                    .articleTitle {
                         font-size: 15px;
                         font-weight: $fw-3;
-                        height:42px;
-                        margin-bottom:5px;
-                        color:$color-black-0;
+                        height: 42px;
+                        font-family: "SF Regular";
+                        line-height: 20px;
+                        width: 100%;
+                        margin: 5px 0;
+                        color: $color-black-0;
                         overflow: hidden;
+                        display: inline-block;
                         text-overflow: ellipsis;
-                        &:hover{
-                            color:$color-red-0;
+                        &:hover {
+                            color: $color-red-0;
                         }
                     }
-                    .articleContent{
-                        height:55px;
+                    .articleContent {
+                        text-align: justify;
+                        font-size: 13px;
+                        color: #4a4a4a;
+                        font-family: "SF Regular";
+                        padding: 0 5px 0 0;
+                        line-height: 19px;
+                        letter-spacing: 0.17;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        height: 55px;
+                        margin-bottom: 15px;
                     }
-                    .feedBack{
-                        img{
+                    .feedBack {
+                        img {
                             width: 20px;
                             height: 20px;
-                            margin-right:20px
+                            margin-right: 20px;
                         }
                     }
                 }
             }
-            .newsMovieS{
-                .newsMovieS__item{
-                    a{
-                        img{
+            .newsMovieS {
+                .newsMovieS__left {
+                    .newsMovieS_left__item {
+                        a {
+                            img {
+                                height: 200px;
+                                border-radius: 5px;
+                            }
+                        }
+                        .articleTitle {
+                            font-size: 15px;
+                            font-weight: $fw-3;
+                            height: 42px;
+                            font-family: "SF Regular";
+                            line-height: 20px;
+                            width: 100%;
+                            margin: 5px 0;
+                            color: $color-black-0;
+                            overflow: hidden;
+                            display: inline-block;
+                            text-overflow: ellipsis;
+                            &:hover {
+                                color: $color-red-0;
+                            }
+                        }
+                        .articleContent {
+                            text-align: justify;
+                            font-size: 13px;
+                            color: #4a4a4a;
+                            font-family: "SF Regular";
+                            padding: 0 5px 0 0;
+                            line-height: 19px;
+                            letter-spacing: 0.17;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 2;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            height: 55px;
+                            margin-bottom: 15px;
+                        }
+                        .feedBack {
+                            img {
+                                width: 20px;
+                                height: 20px;
+                                margin-right: 20px;
+                            }
+                        }
+                    }
+                }
+                .listNews {
+                    .listNewsItem {
+                        display: flex;
+                        padding: 10px;
+                        img {
+                            width: 50px;
+                            height: 50px;
                             border-radius: 5px;
+                            margin-right: 10px;
+                        }
+                        a {
+                            p {
+                                color: $color-black-0;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                line-height: 20px;
+                                font-family: "SF Medium";
+                                height: 42px;
+                                font-size: 19px !important;
+                                transition: color 0.2s;
+                                margin-bottom: 5px;
+                                &:hover {
+                                    color: $color-red-0;
+                                }
+                            }
                         }
                     }
-                    .articleTitle{
-                        font-size: 15px;
-                        font-weight: $fw-3;
-                        height:22px;
-                        margin-bottom:5px;
-                        color:$color-black-0;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        &:hover{
-                            color:$color-red-0;
-                        }
-                    }
-                    .articleContent{
-                        height:55px;
-                    }
-                    .feedBack{
-                        img{
-                            width: 20px;
-                            height: 20px;
-                            margin-right:20px
-                        }
-                    }
+                }
+            }
+        }
+        .viewMoreButton {
+            text-align: center;
+            #btnNews {
+                font-size: 14px;
+                color: #949494;
+                font-family: "SF Regular";
+                border: 1px solid #949494;
+                border-radius: 4px;
+                text-align: center;
+                background: 0 0;
+                padding: 7px 25px;
+                transition: all 0.2s;
+                margin: auto;
+                margin-top: 35px;
+                margin-bottom: 20px;
+                display: block;
+                &:hover{
+                    color:$color-white-0;
+                    border-color: $color-red-0;
+                    background-color: $color-red-0;
                 }
             }
         }
