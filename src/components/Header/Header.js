@@ -42,6 +42,7 @@
 import React from 'react';
 import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import { NavLink } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import useSelection from 'antd/lib/table/hooks/useSelection';
 
@@ -76,10 +77,10 @@ export default function Header() {
                 </div>
                 <div className="header__detail">
                     <div className="header__detail__login">
-                        <a href="#">
+                        <NavLink to="/login">
                             <img src="./images/avatar.png"></img>
                             <span>Đăng Nhập</span>
-                        </a>
+                        </NavLink>
                     </div>
                     <div className="header__detail__pos dropdown ml-2" id="dropdown_click" >
                         <div className="header__pos__icon" style={{backgroundImage:"url('./images/dropdown-icon.png')"}}></div>

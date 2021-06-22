@@ -7,6 +7,10 @@
 html , body{
     font-family: 'SF Regular';
     font-size: 14px;
+    
+}
+html, body, #root, .App{
+    height: 100%;
 }
 @font-face {
     font-family: 'SF Regular';
