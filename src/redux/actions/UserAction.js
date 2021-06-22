@@ -5,26 +5,36 @@ import {history} from '../../App';
 import { LOGIN } from './type/UserType';
 import {USERLOGIN, TOKEN} from '../../util/setting';
 
-export const loginAction = (userLogin) =>{
-    return async (dispatch) =>{
-        try{
+export const loginAction = (userLogin) => { //userLogin : {taiKhoan:'',matKhau:''}
 
+    return async (dispatch) => {
+
+
+        try {
             const result = await axios({
                 url:'https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap',
                 method:'POST',
-                data:userLogin
-
+                data: userLogin //{taiKhoan:'',matKhau:''}
             });
-            console.log('result', result.data);
+
+            console.log('result',result.data)
+            //123@admin
+            //148
+
             dispatch({
                 type:LOGIN,
-                username:result.data.taiKhoan
+                taiKhoan:result.data.taiKhoan
             })
-            localStorage.setItem(TOKEN, result.data.accessToken);
-            localStorage.setItem(USERLOGIN, JSON.stringify(result.data));
+            localStorage.setItem(TOKEN,result.data.accessToken);
+            
+            localStorage.setItem(USERLOGIN, JSON.stringify(result.data))
+
+            // props.history.push()
             history.push('/');
-        }catch(errors){
-            console.log(errors);
+
+
+        }catch (errors) {
+            console.log('errors',errors.response.data)
         }
     }
 }

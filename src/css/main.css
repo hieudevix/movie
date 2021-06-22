@@ -880,6 +880,64 @@ html, body, #root, .App {
   margin-right: 20px;
 }
 
+.article .article__content .list__film .newsMovieS .listNews .listNewsItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+}
+
+.article .article__content .list__film .newsMovieS .listNews .listNewsItem img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.article .article__content .list__film .newsMovieS .listNews .listNewsItem a p {
+  color: black;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 20px;
+  font-family: "SF Medium";
+  height: 42px;
+  font-size: 19px !important;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+  margin-bottom: 5px;
+}
+
+.article .article__content .list__film .newsMovieS .listNews .listNewsItem a p:hover {
+  color: #fb4226;
+}
+
+.article .article__content .viewMoreButton {
+  text-align: center;
+}
+
+.article .article__content .viewMoreButton #btnNews {
+  font-size: 14px;
+  color: #949494;
+  font-family: "SF Regular";
+  border: 1px solid #949494;
+  border-radius: 4px;
+  text-align: center;
+  background: 0 0;
+  padding: 7px 25px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  margin: auto;
+  margin-top: 35px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.article .article__content .viewMoreButton #btnNews:hover {
+  color: #fff;
+  border-color: #fb4226;
+  background-color: #fb4226;
+}
+
 .login {
   background: url("../asset/bg2.jpg");
   background-repeat: no-repeat;
@@ -891,7 +949,7 @@ html, body, #root, .App {
 }
 
 .login .loginForm {
-  width: 25%;
+  width: 400px;
   margin: 0 auto;
   height: auto;
   padding: 50px 20px 0 20px;
@@ -904,7 +962,8 @@ html, body, #root, .App {
   border-bottom: 1.5px solid #fb4226;
   font-size: 15px;
   font-weight: 600;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .login .loginForm .input__line::after {
@@ -912,8 +971,11 @@ html, body, #root, .App {
   width: 100px;
   height: 3px;
   display: block;
+  background: -webkit-gradient(linear, left top, right top, from(#f8a193), to(#fb4226));
   background: linear-gradient(to right, #f8a193, #fb4226);
-  box-shadow: 0 0 20px 0 #f8a193;
+  -webkit-box-shadow: 0 0 20px 0 #f8a193;
+          box-shadow: 0 0 20px 0 #f8a193;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
@@ -938,6 +1000,7 @@ html, body, #root, .App {
   border: 1px solid #fb4226;
   color: #fff;
   background-color: #fb4226;
+  -webkit-transition: .5s;
   transition: .5s;
 }
 
@@ -962,7 +1025,7 @@ html, body, #root, .App {
 }
 
 .register .registerForm {
-  width: 30%;
+  width: 500px;
   margin: 0 auto;
   height: auto;
   padding: 50px 20px 0 20px;
@@ -979,7 +1042,8 @@ html, body, #root, .App {
   border-bottom: 1.5px solid #fb4226;
   font-size: 15px;
   font-weight: 600;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .register .registerForm .input__line::after {
@@ -987,8 +1051,11 @@ html, body, #root, .App {
   width: 100px;
   height: 3px;
   display: block;
+  background: -webkit-gradient(linear, left top, right top, from(#f8a193), to(#fb4226));
   background: linear-gradient(to right, #f8a193, #fb4226);
-  box-shadow: 0 0 20px 0 #f8a193;
+  -webkit-box-shadow: 0 0 20px 0 #f8a193;
+          box-shadow: 0 0 20px 0 #f8a193;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
@@ -1005,6 +1072,7 @@ html, body, #root, .App {
   border: 1px solid #fb4226;
   color: #fff;
   background-color: #fb4226;
+  -webkit-transition: .5s;
   transition: .5s;
 }
 
@@ -1024,6 +1092,18 @@ html, body, #root, .App {
   font-weight: 600;
 }
 
+.register .registerForm ::-webkit-input-placeholder {
+  color: #495057;
+}
+
+.register .registerForm :-ms-input-placeholder {
+  color: #495057;
+}
+
+.register .registerForm ::-ms-input-placeholder {
+  color: #495057;
+}
+
 .register .registerForm ::placeholder {
   color: #495057;
 }
@@ -1036,7 +1116,8 @@ html, body, #root, .App {
 
 .register .registerForm .ant-picker-focused {
   border: 0 !important;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border-bottom: 1px solid #fb4226 !important;
 }
 
