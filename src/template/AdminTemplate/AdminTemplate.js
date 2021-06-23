@@ -18,13 +18,6 @@ import {
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
-
-
-
-
-
-
-
 export const AdminTemplate = (props) => {
 
     const [state, setState] = useState({ collapsed: false })
@@ -41,7 +34,7 @@ export const AdminTemplate = (props) => {
                     <div className="logo" />
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" style={{height:'200px'}}>
                         <Menu.Item  id="logoAdmin" icon={<img src="./images/favicon.co.png" />} >
-                            ADMIN MANAGER
+                        <NavLink to="/">  ADMIN MANAGER</NavLink>
                         </Menu.Item>
                         <Menu.Item key="1" icon={<PieChartOutlined />}>
                             Dashboard
