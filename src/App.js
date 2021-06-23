@@ -12,10 +12,12 @@ import Introduce from './components/Introduce/Introduce';
 import Footer from './components/Footer/Footer';
 import Article from './components/Article/Article';
 import { UserTemplate } from './template/UserTemplate/UserTemplate';
+import { AdminTemplate } from './template/AdminTemplate/AdminTemplate';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
 import Register from './pages/Register/Register';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
+import AdminHeader from './components/Admin/AdminHeader/AdminHeader';
 // Cấu hình thư viện điều hướng trang
 export const history = createBrowserHistory();
 
@@ -29,7 +31,9 @@ function App() {
         <UserTemplate path="/home" exact component={Home} />
         <UserTemplate path="/login" exact component={Login}/>
         <UserTemplate path="/register" exact component={Register}/>
+        <AdminTemplate path="/admin" exact component={AdminHeader} />
         <UserTemplate component={PageNotFound}/>
+        
 
       </Switch>
     </div>

@@ -1,0 +1,29 @@
+.navAdmin {
+    .navAdminItem {
+        .navAdminSearch {
+        }
+    }
+    .navSearchInput {
+        background: none;
+        border: none;
+        border-bottom: 1.5px solid $color-red-0 !important;
+        font-size: 15px;
+        font-weight: $fw-2;
+        box-shadow: none;
+    }
+    .navSearchButton {
+        margin-top: 10px;
+        font-size: 17px;
+        border-radius: 5px;
+        padding: 5px 30px;
+        border: 1px solid $color-red-0;
+        color: $color-white-0;
+        background-color: $color-red-0;
+        transition: 0.5s;
+        &:hover {
+            border: 1px solid $color-gray-0;
+            color: $color-gray-0;
+            background-color: $color-white-0;
+        }
+    }
+}

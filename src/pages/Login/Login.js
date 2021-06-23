@@ -3,10 +3,9 @@ import { Redirect } from 'react-router';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { NavLink } from 'react-router-dom';
-import { Form, Input, Button, Checkbox } from 'antd';
 import { useDispatch } from 'react-redux';
 import { loginAction } from '../../redux/actions/UserAction';
-import { USERLOGIN } from '../../util/setting';
+import { TYPE_USER, USERLOGIN } from '../../util/setting';
 
 
 
@@ -25,7 +24,15 @@ export default function Login() {
             dispatch(action);
         },
     });
-    if(localStorage.getItem(USERLOGIN)) {
+    // if(localStorage.getItem(USERLOGIN)){
+    //     return <Redirect to="/"/>
+    // }
+    console.log('typeuser', localStorage.getItem(TYPE_USER));
+
+    if(localStorage.getItem(USERLOGIN) && localStorage.getItem(TYPE_USER) == "\"QuanTri\""){
+        return <Redirect to="/admin" />
+    }
+    else if(localStorage.getItem(USERLOGIN) && localStorage.getItem(TYPE_USER) === "\"KhachHang\"") {
         return <Redirect to="/" />
     }
     return (

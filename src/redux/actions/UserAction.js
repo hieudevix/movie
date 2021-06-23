@@ -3,7 +3,7 @@
 import axios from 'axios';
 import {history} from '../../App';
 import { LOGIN } from './type/UserType';
-import {USERLOGIN, TOKEN} from '../../util/setting';
+import {USERLOGIN, TOKEN, TYPE_USER} from '../../util/setting';
 
 export const loginAction = (userLogin) => { //userLogin : {taiKhoan:'',matKhau:''}
 
@@ -23,15 +23,23 @@ export const loginAction = (userLogin) => { //userLogin : {taiKhoan:'',matKhau:'
 
             dispatch({
                 type:LOGIN,
-                taiKhoan:result.data.taiKhoan
+                userName:result.data.taiKhoan,
+                userType: result.data.maLoaiNguoiDung
+
             })
             localStorage.setItem(TOKEN,result.data.accessToken);
             
-            localStorage.setItem(USERLOGIN, JSON.stringify(result.data))
+            localStorage.setItem(USERLOGIN, JSON.stringify(result.data));
 
-            // props.history.push()
-            history.push('/');
+            localStorage.setItem(TYPE_USER, JSON.stringify(result.data.maLoaiNguoiDung))
 
+            if(result.data.maLoaiNguoiDung == 'QuanTri'){
+                history.push('/admin');
+            }else{
+                // props.history.push()
+                history.push('/');
+            }
+            
 
         }catch (errors) {
             console.log('errors',errors.response.data)

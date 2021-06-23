@@ -10,7 +10,7 @@
 
 
 // import Layouts
-
+// home
 @import './Layouts/header';
 @import './Layouts/carousel';
 @import './Layouts/formGetSticket';
@@ -19,6 +19,9 @@
 @import './Layouts/introduce';
 @import './Layouts/footer';
 @import './Layouts/article';
+
+// admin
+@import './Layouts/Admin/adminHeader';
 
 // import Pages
 @import './Pages/login';

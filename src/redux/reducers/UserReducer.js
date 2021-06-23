@@ -10,13 +10,15 @@ if(localStorage.getItem(USERLOGIN)){
 }
 
 const stateDefault = {
-    username: userLogin
+    userName: userLogin,
+    userType:""
 }
 
 export const UserReducer = (state=stateDefault, action) => {
     switch(action.type){
         case LOGIN:{
-            state.username = action.username;
+            state.userName = action.userName;
+            state.userType = action.userType;
             return {...state}
         }
 

@@ -1,0 +1,53 @@
+
+section.ant-layout.ant-layout-has-sider {
+    height: 100%;
+}
+
+#components-layout-demo-side .logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+.ant-layout-sider-trigger {
+  max-width: 300px !important;
+  min-width: 250px !important;
+}
+aside.ant-layout-sider.ant-layout-sider-dark.ant-layout-sider-has-trigger {
+  max-width: 300px !important;
+  min-width: 250px !important;
+}
+aside.ant-layout-sider.ant-layout-sider-dark.ant-layout-sider-collapsed.ant-layout-sider-has-trigger {
+    max-width: 80px !important;
+    min-width: 80px !important;
+    
+}
+aside.ant-layout-sider.ant-layout-sider-dark.ant-layout-sider-collapsed.ant-layout-sider-has-trigger .ant-layout-sider-trigger {
+  max-width: 80px !important;
+  min-width: 80px !important;
+  
+}
+aside.ant-layout-sider.ant-layout-sider-dark.ant-layout-sider-collapsed.ant-layout-sider-has-trigger li#logoAdmin {
+ height:40px;
+  
+}
+aside.ant-layout-sider.ant-layout-sider-dark.ant-layout-sider-collapsed.ant-layout-sider-has-trigger li#logoAdmin img {
+  height:16px;
+  width: 16px;
+   
+ }
+li#logoAdmin {
+  height:100px;
+}
+li#logoAdmin span {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+li#logoAdmin img{
+  height:70px;
+  width: 70px;
+}
