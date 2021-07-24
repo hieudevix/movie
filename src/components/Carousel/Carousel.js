@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react'
 import { Select } from 'antd';
-import { useDispatch, useSelector } from 'react-redux';
-import { getListFilmForm } from '../../redux/actions/FormGetSticketActions';
 import FormGetSticket from '../FormGetSticket/FormGetSticket';
 
 const { Option } = Select;

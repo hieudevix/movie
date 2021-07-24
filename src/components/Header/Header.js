@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { NavLink } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import useSelection from 'antd/lib/table/hooks/useSelection';
-import { TOKEN, TYPE_USER, USERLOGIN } from '../../util/setting';
+import { STICKETINFO, TOKEN, TYPE_USER, USERLOGIN } from '../../util/setting';
+import logo from './../../asset/images/logo.png';
+import locationImg from './../../asset/images/location-header.png';
+import avatar from './../../asset/images/avatar.png';
+import button from './../../asset/images/icons/menu-options.png';
+import next from './../../asset/images/icons/next-session.png';
 
 export default function Header() {
     const { location, listLocation } = useSelector(state => state.LocationReducer);
     const { userName, userType } = useSelector(state => state.UserReducer);
-    console.log('test:',userType);
+    const [hidden, setHidden] = useState(false);
     const dispatch = useDispatch();
 
     const renderLocation = () => {
@@ -23,43 +28,94 @@ export default function Header() {
         })
     }
     return (
-        <div className="container-fluid" style={{ padding: '0', position: 'fixed', zIndex: '100', top: '-1px' }}>
-            <nav className="header">
-                <div className="header__logo">
-                    <img src="./images/logo.png" />
-                </div>
-                <div className="header__nav">
-                    <ul>
-                        <li><a href="#">Lịch Chiếu</a> </li>
-                        <li><a href="#">Cụm Rạp</a></li>
-                        <li><a href="#">Tin Tức</a></li>
-                        <li><a href="#">Ứng Dụng</a></li>
-                    </ul>
-                </div>
-                <div className="header__detail">
-                    <div className="header__detail__login">
-                        {localStorage.getItem(USERLOGIN) ? <a><img src="./images/avatar.png" /><span onClick={()=>{
+        <>
+            <div className="container-fluid" style={{ padding: '0', position: 'fixed', zIndex: '10001', top: '-1px' }}>
+                <nav className="header">
+                    <div className="header__logo">
+                        <NavLink to="/"><img src={logo} /></NavLink>
+                    </div>
+                    <div className="header__nav">
+                        <ul>
+                            <li><a href="#">Lịch Chiếu</a> </li>
+                            <li><a href="#">Cụm Rạp</a></li>
+                            <li><a href="#">Tin Tức</a></li>
+                            <li><a href="#">Ứng Dụng</a></li>
+                        </ul>
+                    </div>
+                    <div className="header__detail">
+                        <div className="header__detail__login">
+                            {localStorage.getItem(USERLOGIN) ? <a style={{ display: 'flex' }}><img src={avatar} /><div className="dropdown">
+                                <div className=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {userName}
+                                </div>
+                                <div className="dropdown-menu user" aria-labelledby="dropdownMenuButton">
+                                    {localStorage.getItem(TYPE_USER) == "\"QuanTri\"" ? <NavLink className="dropdown-item" to="/admin">Dashboard</NavLink> : ''}
+                                    <a className="dropdown-item" to="" >Danh Sách Vé</a>
+                                    <a className="dropdown-item" onClick={() => {
+                                        localStorage.removeItem(USERLOGIN);
+                                        localStorage.removeItem(TYPE_USER);
+                                        localStorage.removeItem(TOKEN);
+                                        localStorage.removeItem(STICKETINFO);
+                                        window.location.reload();
+                                    }}>Đăng Xuất</a>
+                                </div>
+                            </div></a> : <NavLink to="/login">
+                                <img src={avatar}></img>
+                                <span>Đăng Nhập</span>
+                            </NavLink>}
+                        </div>
+                        <div className="header__detail__pos dropdown ml-2" id="dropdown_click" >
+                            <div className="header__pos__icon" ></div>
+                            <div className="header__choose__pos" href="#" id="dropdownMenuLocation" data-toggle="dropdown" aria-expanded="true">
+                                <img className="mr-1" src={locationImg} />
+                                <span>{location}</span>
+                            </div>
+                            <div className="dropdown-menu" aria-labelledby="dropdownMenuLocation">
+                                {renderLocation()}
+                            </div>
+                        </div>
+                    </div>
+                    <div onClick={() => { setHidden(true) }} className="header__button">
+                        <img src={button} />
+                    </div>
+                </nav>
+            </div>
+            <div onClick={()=>{setHidden(false)}} className={hidden ? "header__dropdown active" : "header__dropdown"}>
+                <div className={hidden ? "dropdown__content active" : "dropdown__content"}>
+                    <div className="mobile__user ">
+                        <img src={avatar} />
+                        {localStorage.getItem(USERLOGIN) ? <span>{userName}</span> : <NavLink to="/login">Đăng Nhập</NavLink>}
+                        <span onClick={() => { setHidden(false) }} className="button__close">
+                            <img src={next} />
+                        </span>
+                    </div>
+                    <div className="mobile__nav">
+                        <a href="#">Lịch Chiếu</a>
+                    </div>
+                    <div className="mobile__nav">
+                        <a href="#">Cụm Rạp</a>
+                    </div>
+                    <div className="mobile__nav">
+                        <a href="#">Tin Tức</a>
+                    </div>
+                    <div className="mobile__nav">
+                        <a href="#">Ứng Dụng</a>
+                    </div>
+                    <div className="mobile__nav">
+                        <a href="#">{location}</a>
+                    </div>
+                    <div className="mobile__nav">
+                        {localStorage.getItem(USERLOGIN) ? <a onClick={() => {
                             localStorage.removeItem(USERLOGIN);
                             localStorage.removeItem(TYPE_USER);
                             localStorage.removeItem(TOKEN);
+                            localStorage.removeItem(STICKETINFO);
                             window.location.reload();
-                        }}>{userName}</span></a> : <NavLink to="/login">
-                            <img src="./images/avatar.png"></img>
-                            <span>Đăng Nhập</span>
-                        </NavLink>}
-                    </div>
-                    <div className="header__detail__pos dropdown ml-2" id="dropdown_click" >
-                        <div className="header__pos__icon" style={{ backgroundImage: "url('./images/dropdown-icon.png')" }}></div>
-                        <div className="header__choose__pos" href="#" id="dropdownMenuLocation" data-toggle="dropdown" aria-expanded="true">
-                            <img className="mr-1" src="./images/location-header.png" />
-                            <span>{location}</span>
-                        </div>
-                        <div className="dropdown-menu" aria-labelledby="dropdownMenuLocation">
-                            {renderLocation()}
-                        </div>
+                        }}>Đăng Xuất</a> : ''}
                     </div>
                 </div>
-            </nav>
-        </div>
+            </div>
+            {/* <div className="overplay"></div> */}
+        </>
     )
 }

@@ -1,6 +1,6 @@
 .article {
     padding: 25px 0;
-    width: 80% !important;
+    width: 80%;
     margin: 0 auto;
     .article__tab {
         .article__tab__item {
@@ -11,7 +11,7 @@
                 border: 0;
                 font-size: 20px;
                 color: $color-black-0;
-                font-weight: 500;
+                font-weight: 600;
                 transition: 0.2s;
                 &.active {
                     font-size: 24px;
@@ -76,7 +76,9 @@
             }
             .newsMovieS {
                 .newsMovieS__left {
+                    display: flex;
                     .newsMovieS_left__item {
+                        padding: 10px;
                         a {
                             img {
                                 height: 200px;
@@ -169,12 +171,45 @@
                 margin-top: 35px;
                 margin-bottom: 20px;
                 display: block;
-                &:hover{
-                    color:$color-white-0;
+                &:hover {
+                    color: $color-white-0;
                     border-color: $color-red-0;
                     background-color: $color-red-0;
                 }
             }
         }
+    }
+}
+
+// responsive
+@include responsive("large") {
+    .newsMovieS__left {
+        display: flex !important;
+    }
+}
+@include responsive("medium") {
+    .article {
+        width: 100% !important;
+        .article__tab__item {
+            justify-content: center;
+            align-items: center;
+            border: 0;
+            .nav-item {
+                font-size: 17px !important;
+                font-weight: 600;
+                &.active {
+                    font-size: 20px !important;
+                }
+                &:hover {
+                    font-size: 20px !important;
+                }
+            }
+        }
+    }
+    .newsMovieS__left {
+        display: block !important;
+    }
+    .newsMovieS_left__item {
+        padding: 10px 0 !important;
     }
 }

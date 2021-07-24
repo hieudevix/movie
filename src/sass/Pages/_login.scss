@@ -1,21 +1,15 @@
 .login{
     background:url('../asset/bg2.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
     background-position: center;
     height: 100%;
     width: 100%;
-    padding:10% 0;
+    padding:7% 0;
     .loginForm{
-        // background-image:url('../asset/background.png');
-        // background-repeat: no-repeat;
-        // background-size: cover;
-        // background-position: center;
-        // background:linear-gradient(to top, #e6c5c5, #fff5f5);
-        width:400px;
         margin:0 auto;
         height: auto;
-        padding:50px 20px 0 20px;
+        padding:20px 20px 0 20px;
         border-radius: 10px;
         background-color: $color-white-0;
         .input__line{
@@ -50,9 +44,11 @@
             font-weight: $fw-1;
         }
         .buttonLogin{
+            width: 100%;
             font-size: 17px;
             border-radius: 5px;
             padding:5px 30px;
+            outline: none;
             border: 1px solid $color-red-0;
             color: $color-white-0;
             background-color: $color-red-0;

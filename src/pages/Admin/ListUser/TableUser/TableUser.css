@@ -1,0 +1,9 @@
+button.ant-btn.ant-btn-primary.btnAdminP {
+    width: 100% ;
+}
+
+button.ant-btn.ant-btn-primary.btnGo {
+    width: 100% ;
+    background: teal ;
+    color: white;
+}

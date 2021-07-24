@@ -6,6 +6,7 @@ const stateDefautl = {
     Cinema:{nameCinema:"", codeCinema:""},
     listCinema: [],
     movieShowTimes:{showTimes:""},
+    movieTimeWatch:{time:"", codeShowTimes:"", codeCinema:""},
     listMovieShowTimes: []
 
 }
@@ -21,6 +22,9 @@ export const FormGetSticketReducer = (state=stateDefautl, action) =>{
             state.Film.maPhim  = action.maPhim;
             state.Cinema.nameCinema = "";
             state.movieShowTimes.showTimes = "";
+            state.movieTimeWatch.time = "";
+            state.movieTimeWatch.codeShowTimes = "";
+            state.movieTimeWatch.codeCinema = "";
             return {...state};
         }
         case 'GET_LIST_CINEMA':{
@@ -31,13 +35,25 @@ export const FormGetSticketReducer = (state=stateDefautl, action) =>{
             state.Cinema.nameCinema = action.nameCinema;
             state.Cinema.codeCinema = action.codeCinema;
             state.movieShowTimes.showTimes = "";
+            state.movieTimeWatch.time = "";
+            state.movieTimeWatch.codeShowTimes = "";
+            state.movieTimeWatch.codeCinema = "";
             return {...state};
         }
         case 'CHOOSE_MOVIE_SHOW_TIME':{
             state.movieShowTimes.showTimes = action.showTimes
+            state.movieTimeWatch.time = "";
+            state.movieTimeWatch.codeShowTimes = "";
+            state.movieTimeWatch.codeCinema = "";
         }
         case 'GET_LIST_MOVIE_SHOW_TIME':{
             state.listMovieShowTimes = action.listMovieShowTimes;
+            return {...state};
+        }
+        case 'CHOOSE_MOVIE_TIME':{
+            state.movieTimeWatch.time = action.time;
+            state.movieTimeWatch.codeShowTimes = action.codeShowTimes;
+            state.movieTimeWatch.codeCinema = action.codeCinema;
             return {...state};
         }
         default: return {...state};

@@ -1,0 +1,145 @@
+.movieShedule {
+    .listCinema {
+        display: flex;
+        align-items: center;
+        .imgCinema {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .nameCinema {
+            font-size: 1.2rem;
+        }
+    }
+    .tabDate {
+        overflow: auto;
+        white-space: nowrap;
+        font-size: 1.1rem;
+        .displayDay {
+            text-align: center;
+        }
+        .displayDate {
+            text-align: center;
+        }
+    }
+    .cinemaInfo {
+        border: none;
+        .cinemaCard {
+            background-color: transparent;
+            cursor: pointer;
+            border-radius: 30px;
+            .cinemaChild {
+                display: flex;
+                align-items: center;
+                .cinemaChildImg {
+                    width: 50px;
+                    height: 50px;
+                    margin-right: 10px;
+                }
+                .nameCinemaChild {
+                    font-size: 1rem;
+                    font-weight: 600;
+                }
+            }
+        }
+        .typeDigital {
+            font-size: 1rem;
+            font-weight: $fw-2;
+            // max-height: 100px;
+            .movieTime {
+                width: calc(25% - 10px) !important;
+                padding: 5px 10px;
+                border: 1px solid $color-gray-0;
+                margin-right: 10px;
+                text-align: center;
+                border-radius: 7px;
+                color: #9b9b9b;
+                background-color: #fafafa;
+                border: 1px solid #e4e4e4;
+                cursor: pointer;
+                margin-bottom: $mg-1;
+                .mainTime {
+                    font-size: 1.2rem;
+                    color: $color-green-0;
+                    &:hover {
+                        color: $color-red-0;
+                    }
+                }
+            }
+        }
+    }
+    .hideOnPC {
+        display: none;
+    }
+    .cinemaChildMobile {
+        .cinemaChild {
+            display: flex;
+            align-items: center;
+            .cinemaChildImg {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+            }
+            .nameCinemaChild {
+                font-weight: 600;
+            }
+        }
+        .movieTime {
+            // width: calc(30% - 10px) !important;
+            padding: 5px 7px;
+            border: 1px solid $color-gray-0;
+            text-align: center;
+            border-radius: 7px;
+            color: #9b9b9b;
+            background-color: #fafafa;
+            border: 1px solid #e4e4e4;
+            cursor: pointer;
+            margin:0 10px 10px 0 !important;
+            // margin-bottom: 10px !important;
+            .mainTime {
+                font-size: 1.2rem;
+                color: $color-green-0;
+                &:hover {
+                    color: $color-red-0;
+                }
+            }
+        }
+        .ant-collapse-content > .ant-collapse-content-box {
+            padding: 5px 0;
+        }
+    }
+}
+.modalTitle {
+    display: flex;
+    align-items: center;
+    .modalImg {
+        width: 70px;
+        height: 70px;
+    }
+    .modalInform {
+        margin-left: $mg-1;
+        font-size: 1.5rem;
+    }
+}
+.ant-modal-footer {
+    button.ant-btn.ant-btn-primary {
+        background-color: $color-red-0 !important;
+        border: none;
+        outline: none;
+    }
+}
+
+// responsive
+@include responsive("medium") {
+    .movieShedule {
+        .hideOnMobile {
+            display: none;
+        }
+        .ant-collapse.ant-collapse-icon-position-right {
+            background-color: $color-white-0;
+        }
+        .ant-collapse.ant-collapse-icon-position-right.cinemaChildMobile {
+            border: none;
+        }
+    }
+}

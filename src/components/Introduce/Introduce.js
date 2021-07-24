@@ -24,15 +24,15 @@ export default function Introduce() {
         <div className="intro__app" style={{ backgroundImage: "url('./images/icons/backapp.jpg')" }}>
             <div className="container ">
                 <div className="row intro__content">
-                    <div className="col-6 intro__info">
+                    <div className="col-12 col-sm-12 col-md-6 intro__info">
                         <h2 className="text-white">Ứng dụng tiện lợi dành cho </h2>
                         <h2 className="text-white"> người yêu điện ảnh</h2>
                         <p>Không chỉ đặt vé, bạn còn có thể bình luận phim, chấm điểm rạp và đổi quà hấp dẫn.</p>
                         <button>App miễn phí - Tải về ngay!</button>
                         <p>TIX có hai phiên bản iOS & Android</p>
                     </div>
-                    <div className="col-6 intro__carousel">
-                        <img className="img-responsive" src="./images/icons/mobile.png" />
+                    <div className="col-12 col-sm-12 col-md-6 intro__carousel">
+                        <img className="imgPhone" src="./images/icons/mobile.png" />
                         <div id="carousel__app">
                             <Slider {...settings}>
                                 {renderSlide()}

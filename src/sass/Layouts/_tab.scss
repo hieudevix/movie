@@ -12,7 +12,7 @@
                 border: 0;
                 font-size: 20px;
                 color: $color-black-0;
-                font-weight: 500;
+                font-weight: 600;
                 transition: 0.2s;
                 &.active {
                     font-size: 24px;
@@ -27,6 +27,8 @@
     }
     .slick-list {
         // z-index: -10;
+        position: static;
+        z-index:100;
     }
     .movie__tab__item {
         .slick-next:before, .slick-prev:before {
@@ -34,19 +36,23 @@
         }
         .list__film{
             .film__showing{
+                color:$color-black-0;
                 position: relative;
                 cursor: pointer;
-                .film__img{
-                    position: relative;
-                    &>img{
-                        height: 315px;
-                        border-radius: 5px;
-                    }
-                }
+                transition: .9s;
+                padding:0 10px;
+                width: 25%;
                 &:hover{
+                    .btnGetTicket{
+                        display: inline ;
+                    }
+                    .btnFilmDetail{
+                        display: inline ;
+                    }
                     .film__img{
                         .film__hover{
-                            z-index: 100;
+                            transition: .8s;
+                            z-index: 1;
                             position: absolute;
                             top:0;
                             background-image: linear-gradient(to top,#000,transparent 100%) ;
@@ -55,11 +61,89 @@
                         }
                         
                     }
+                    .film__info, .infoFilm{
+                        visibility: hidden;
+                    }
                     .playButton{
+                        background-color: none;
                         z-index: 10;
                         opacity: 1;
+                        
                     }
                 }
+                .btnGetTicket{
+                    display: none;
+                    position: absolute;
+                    bottom:0;
+                    left:50%;
+                    transform: translate(-50%, -50%);
+                    width: 90%;
+                    padding:10px 0;
+                    color:$color-white-0;
+                    font-size: 1.3rem;
+                    background-color: $color-red-0;
+                    font-weight: $fw-1;
+                    border:none;    
+                    border-radius: 5px;
+                    margin-bottom: $mg-1;
+                    transition: 0.5s;
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 5px;
+                        z-index: -2;
+                      }
+                      &:before {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        width: 0%;
+                        height: 100%;
+                        background-color: darken(#ca260e, 15%);
+                        transition: all .5s;
+                        border-radius: 5px;
+                        z-index: -1;
+                      }
+                      &:hover {
+                        color: #fff;
+                        &:before {
+                          width: 100%;
+                        }
+                      }
+                }
+                .btnFilmDetail{
+                    display: none;
+                    position: absolute;
+                    bottom:0;
+                    left:50%;
+                    transform: translate(-50%, -50%);
+                    width: 90%;
+                    padding:10px 0;
+                    color:$color-white-0;
+                    font-size: 1.3rem;
+                    background-color: $color-green-0;
+                    font-weight: $fw-1;
+                    border:none;    
+                    border-radius: 5px;
+                    margin-bottom: $mg-1;
+                    transition: 0.5s;
+                    &:hover{
+                        background: #008c3f;
+                    }
+                }
+                .film__img{
+                    position: relative;
+                    &>img{
+                        height: 315px;
+                        border-radius: 5px;
+                    }
+                }
+                
                 .film__info{
                     position: relative;
                     margin-top:$mg-1;
@@ -160,3 +244,50 @@
     background-repeat: no-repeat;
     background-size: 100%;
 }
+.slick-slider.slick-initialized {
+    z-index: 1 !important;
+    
+}
+// .slick-list{
+//     position: relative;
+//     display: block;
+//     overflow: hidden;
+//     margin: 0;
+//     padding: 0;
+// }
+
+
+// responsive
+@include responsive("extra-large") {
+    button.slick-arrow.slick-prev, button.slick-arrow.slick-next{
+        display: none !important;
+    }
+}
+// @include responsive("large") {
+//     .film__showing{
+//         width: 33.33% !important;
+//     }
+// }
+@include responsive("medium") {
+    .film__img{
+        &>img{
+            height: 415px !important;
+            border-radius: 10px !important;
+        }
+    }
+    .movie__tab__title {
+        .tab__tittle__item {
+            .nav-item {
+                font-size: 17px !important;
+                &.active {
+                    font-size: 20px !important;
+                }
+                &:hover {
+                    font-size: 20px !important;
+                }
+            }
+            
+        }
+    }
+}
+

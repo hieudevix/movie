@@ -1,8 +1,8 @@
 import React from 'react'
-
+import { NavLink } from 'react-router-dom'
 export default function PageNotFound() {
     return (
-        <div className="awesome" style={{ border: '1px solid red' }}>
+        <div className="awesome" style={{ border: '1px solid red', height:'100%' }}>
             <div className="hamburger-menu">
                 <button className="burger" data-state="closed">
                     <span />
@@ -10,7 +10,7 @@ export default function PageNotFound() {
                     <span />
                 </button>
             </div>
-            <main>
+            <main style={{height:'90%'}}>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6 align-self-center">
@@ -177,7 +177,7 @@ export default function PageNotFound() {
                                 How you got here is a mystery. But you can click the button below
                                 to go back to the homepage.
                             </p>
-                            <button className="btn green">HOME</button>
+                            <button className="btn green"><NavLink to="/"><img src="./images/logo.png" with={50} height={50}/></NavLink></button>
                         </div>
                     </div>
                 </div>

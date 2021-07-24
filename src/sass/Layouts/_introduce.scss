@@ -1,8 +1,7 @@
 .intro__app {
     width: 100%;
-    height: 700px;
     background-size: contain;
-    padding: 120px 0 0 60px;
+    padding: 120px 0 60px 60px;
     .intro__content {
         .intro__info {
             padding-top: 60px;
@@ -13,26 +12,25 @@
             p {
                 font-size: 1.3rem;
             }
-            &>button{
-                padding:10px;
+            & > button {
+                padding: 10px;
                 font-size: 1.3rem;
                 background-color: $color-red-0;
                 font-weight: $fw-1;
                 border: none;
                 border-radius: 5px;
                 margin-bottom: $mg-1;
-
             }
         }
-        .intro__carousel{
+        .intro__carousel {
             position: relative;
-            #carousel__app{
+            #carousel__app {
                 position: absolute;
-                padding: 1.8% 32% 0 32.4%;
+                padding: 1.5% 29.3% 0 29.3%;
                 top: 0;
                 left: 0;
                 width: 100%;
-                .carousel__img__item{
+                .carousel__img__item {
                     height: auto;
                     width: 100%;
                 }
@@ -43,20 +41,43 @@
                     margin: 0;
                     padding: 0;
                 }
-                .slick-next:before, .slick-prev:before {
+                .slick-next:before,
+                .slick-prev:before {
                     opacity: 0;
                 }
                 .slick-dots li button:before {
                     font-size: 0;
                 }
             }
-            &>img{
-                padding:0 30%;
+            & > img {
+                padding: 0.8% 26.9% 0 26.9%;
                 display: block;
                 max-width: 100%;
                 height: auto;
             }
-            
+            .slick-list {
+                border-radius: 30px ;
+            }
+        }
+    }
+}
+
+// responsive
+
+@include responsive("medium") {
+    .intro__app {
+        padding: 20px 0 60px 0 !important;
+        .intro__info {
+            text-align: center;
+            h2 {
+                font-size: 2.5rem !important;
+            }
+        }
+    }
+    .intro__carousel {
+        
+        .slick-list {
+            border-radius: 20px !important ;
         }
     }
 }

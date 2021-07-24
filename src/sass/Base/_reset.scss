@@ -5,9 +5,9 @@
 }
 
 html , body{
-    font-family: 'SF Regular';
+    font-family: 'SF Regular' !important;
     font-size: 14px;
-    
+    scroll-behavior: smooth;
 }
 html, body, #root, .App{
     height: 100%;

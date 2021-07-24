@@ -1,26 +1,55 @@
 import { render } from '@testing-library/react';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom'
 import Slider from "react-slick";
+
 import { getListFilm } from '../../redux/actions/ListMovieActions';
 
 export default function Tab() {
-    const { listFilmShowing } = useSelector(state => state.ListMovieReducer);
+    const { listFilmShowing, isLoading } = useSelector(state => state.ListMovieReducer);
+    const [isOpen, setIsOpen] = useState(false);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getListFilm());
     }, []);
-    // console.log('listFimShowing', listFilmShowing);
     const settings = {
-        // centerMode: true,
+        focusOnSelect: true,
         infinite: true,
         autoplay: true,
         autoplaySpeed: 2000,
         slidesToShow: 1,
         speed: 500,
         rows: 2,
-        slidesPerRow: 4
+        slidesPerRow: 4,
+        responsive: [
+            {
+              breakpoint: 1024,
+              settings: {
+                rows: 2,
+                slidesToShow: 2,
+                slidesPerRow: 2
+              }
+            },
+            {
+              breakpoint: 900,
+              settings: {
+                rows: 2,
+                slidesToShow: 1,
+                slidesPerRow: 3
+              }
+            },
+            {
+              breakpoint: 576,
+              settings: {
+                rows: 1,
+                slidesToShow: 1,
+                slidesPerRow: 1,
+                rows: 1
+              }
+            }
+          ]
+        
     };
     const createRandomNumber = (min, max) => {
         return Math.floor(Math.random() * (max - min)) + min;
@@ -47,30 +76,37 @@ export default function Tab() {
     const renderMovieShowing = () => {
         return listFilmShowing.map((f, index) => {
             if (index < 22) {
-                return <div key={index} className="film__showing col-3 mt-4 mb-2">
-                    <div  className="film__img">
-                        <img src={f.hinhAnh} className="w-100 d-block"  />
+                return <div  key={index} className="film__showing  mt-4 mb-2">
+                    <div className="film__img">
+                        <img src={f.hinhAnh} className="w-100 d-blo ck" />
                         <div className="film__hover"></div>
                     </div>
-                    <div  className="film__info d-flex">
-                        <span className="nameFilm" > <span className="age__type mr-2">C18</span>
-                            {f.tenPhim}
-                        </span>
-                    </div>
-                    <div  className="infoFilm mb-2">
-                        <span>{createRandomNumber(120, 90)} phút - {createRandomNumber(9.7, 3.4).toFixed(1)} IMDb</span>
-                    </div>
-                    <div  className="playButton">
-                        <img src="./images/icons/play-video.png" />
-                    </div>
-                    <div className="rateFilm">
-                        <div className="point">
-                            {f.danhGia}
+                    <div className="filmInfoDetail" onClick={()=>{setIsOpen(true)}}>
+                        <div className="film__info d-flex">
+                            <span className="nameFilm" > <span className="age__type mr-2">C18</span>
+                                {f.tenPhim}
+                            </span>
                         </div>
-                        <div key={index} className="star">
-                            {renderStar(f.danhGia)}
+                        <div className="infoFilm mb-2">
+                            <span>{createRandomNumber(120, 90)} phút - {createRandomNumber(9.7, 3.4).toFixed(1)} IMDb</span>
+                        </div>
+                        <div className="playButton">
+                            <img src="./images/icons/play-video.png" />
+                        </div>
+                        <div className="rateFilm">
+                            <div className="point">
+                                {f.danhGia}
+                            </div>
+                            <div key={index} className="star">
+                                {renderStar(f.danhGia)}
+                            </div>
                         </div>
                     </div>
+                    {/* <a href={`/phim/${f.maPhim}`}><button className="btnGetTicket">MUA VÉ</button></a>   */}
+                    <NavLink onClick={()=>{
+                        dispatch({type:'RESET_LOADING'});
+                        dispatch({type:'CLEAR_LIST_CINEMAS'});
+                    }} to={`/phim/${f.maPhim}`}><button className="btnGetTicket">MUA VÉ</button></NavLink> 
                 </div>
             }
         })
@@ -78,22 +114,28 @@ export default function Tab() {
     const renderMovieComing = () => {
         return listFilmShowing.map((f, index) => {
             if (index > 24 && index < 48) {
-                return <div key={index} className="film__showing col-3 mt-4 mb-2">
-                    <div  className="film__img">
-                        <img src={f.hinhAnh} className="w-100 d-block"  />
+                return <div key={index} className="film__showing  mt-4 mb-2">
+                    <div className="film__img">
+                        <img src={f.hinhAnh} className="w-100 d-block" />
                         <div className="film__hover"></div>
                     </div>
-                    <div className="film__info d-flex">
-                        <span className="nameFilm"> <span className="age__types mr-2">P</span>
-                            {f.tenPhim}
-                        </span>
+                    <div className="filmInfoDetailS">
+                        <div className="film__info d-flex">
+                            <span className="nameFilm"> <span className="age__types mr-2">P</span>
+                                {f.tenPhim}
+                            </span>
+                        </div>
+                        <div className="infoFilm mb-2">
+                            <span>{createRandomNumber(120, 90)} phút - {createRandomNumber(9.7, 3.4).toFixed(1)} IMDb</span>
+                        </div>
+                        <div className="playButton">
+                            <img src="./images/icons/play-video.png" />
+                        </div>
                     </div>
-                    <div  className="infoFilm mb-2">
-                        <span>{createRandomNumber(120, 90)} phút - {createRandomNumber(9.7, 3.4).toFixed(1)} IMDb</span>
-                    </div>
-                    <div className="playButton">
-                        <img src="./images/icons/play-video.png" />
-                    </div>
+                    <NavLink onClick={()=>{
+                        dispatch({type:'RESET_LOADING'});
+                        dispatch({type:'CLEAR_LIST_CINEMAS'});
+                    }} to={`/phim-review/${f.maPhim}`}><button className="btnFilmDetail">CHI TIẾT</button></NavLink>
                 </div>
             }
         })
@@ -119,8 +161,8 @@ export default function Tab() {
                     </Slider>
                 </div>
             </div>
-            <div className="container back__news" style={{backgroundImage:"url('./images/icons/back-news.png')"}}></div>
-            
+            <div className="container back__news" style={{ backgroundImage: "url('./images/icons/back-news.png')" }}></div>
+
         </div>
     )
 }

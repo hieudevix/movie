@@ -1,84 +1,109 @@
-.formGetTicket{
+.formGetTicket {
+    z-index: 1000;
     position: absolute;
     bottom: -50px;
-    background-color: rgba(255,255,255,.95);
+    background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 0 15px rgb(165, 164, 164);
     border-radius: $border-radius-0;
     background-color: $color-white-0;
     font-weight: 500;
-    left:$position-2;
+    left: $position-2;
     transform: translate(-$position-2);
-    .row{
-        height:$height-2 - 10px;
-        #btnBuy{
-            background-color: #4a4a4a !important;
+    .row {
+        height: $height-2 - 10px;
+        button#\#btnBuy,
+        button#\#btnBuyActive {
+            padding: 10px 30px;
+            width: 100%;
+            color: $color-white-0;
+            background-color: #4a4a4a;
         }
-        .dropdown{
+        button#\#btnBuyActive {
+            background-color: $color-red-0;
+            &:hover {
+                background-color: #ca260e;
+            }
+        }
+        .dropdown {
             border-right: 1px solid $color-gray-1;
             position: relative;
             text-overflow: ellipsis;
             white-space: nowrap;
+            // z-index: 1000000;
             // set scrollbar
             /* width */
             ::-webkit-scrollbar {
                 width: 6px;
             }
-            
+
             /* Track */
             ::-webkit-scrollbar-track {
-                background: #f1f1f1; 
+                background: #f1f1f1;
                 border-radius: 5px;
             }
-            
+
             /* Handle */
             ::-webkit-scrollbar-thumb {
-                background: #888; 
+                background: #888;
                 border-radius: 5px;
             }
-            
+
             /* Handle on hover */
             ::-webkit-scrollbar-thumb:hover {
-                background: #555; 
+                background: #555;
             }
-            .dropdown-title{
-                font-size: $fs-1  !important;
+            .dropdown-title {
+                font-size: $fs-1 !important;
                 color: $color-black-0;
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden !important;
                 padding-right: 22px !important;
             }
-            .dropdown-menu{
-                position: absolute;
+            .dropdown-menu {
+                position: static;;
                 max-height: 300px;
                 overflow-y: scroll;
-                transform: translate3d(0px, 35px, 0px)!important;
-                z-index: 1000 !important;
-                // position: fixed;
-                color:red !important;
+                transform: translate3d(0px, 35px, 0px) !important;
+                z-index: 9999 !important;
+                color: red ;
                 min-width: 160px;
-                left:0 !important;
-                top:0 !important;
+                left: 0 ;
+                top: 0 ;
                 box-shadow: 0 6px 12px rgb(221, 218, 218);
-                .dropdown-item{
+                .dropdown-item {
+                    z-index: 1001;
                     font-size: 13px;
                     font-weight: 500;
-                    &:hover, &:focus{
+                    &:hover,
+                    &:focus {
                         background-color: $color-blue-0;
                         color: $color-white-0;
                     }
                 }
             }
-           .selectMenu{
-               position: absolute;
-               right:10px;
-               top:50%;
-               height: 7px;
-               width: 13px;
-               background-size: cover;
-               background-repeat: no-repeat;
-           }
+            .selectMenu {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                height: 7px;
+                width: 13px;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
         }
+    }
+    span.ant-tag {
+        width: 100%;
+        margin: 0;
+        padding:  5px 10px;
+        margin:0;
     }
 }
 
+
+@include responsive("medium") {
+    .formGetTicket{
+        display: none;
+    }
+}

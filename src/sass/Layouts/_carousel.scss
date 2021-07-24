@@ -48,3 +48,11 @@
     }
     
 }
+
+// responsive
+
+@include responsive("medium") {
+    .carousel__button{
+        display: none !important;
+    }
+}

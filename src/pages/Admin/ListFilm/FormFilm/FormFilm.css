@@ -1,0 +1,18 @@
+.ant-picker {
+    width:100%;
+}
+.ant-upload.ant-upload-select.ant-upload-select-picture {
+    width:100%;
+    
+}
+.ant-upload.ant-upload-select.ant-upload-select-picture button.ant-btn {
+    width: 100%;
+}
+.ant-input-number {
+    width: 100% !important;
+}
+.ant-card-head-wrapper {
+    background-color: #fb4226;
+    padding-left:10px;
+    color: white;
+}

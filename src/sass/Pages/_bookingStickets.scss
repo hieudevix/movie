@@ -1,0 +1,431 @@
+.bookingSticket {
+    height: 100%;
+    .bookingNav {
+        height: 100%;
+        .bookingNavItems {
+            position: fixed;
+            top: -1px;
+            z-index: 10;
+            width: 75%;
+            border-radius: 10px;
+            border: none;
+            background-color: $color-white-0;
+            height: 80px;
+            align-items: center;
+            box-shadow: 0 0 5px 0 $color-gray-0;
+            .nav-item {
+                .nav-link {
+                    border: none;
+                    color: $color-black-0;
+                    font-size: 1.3rem;
+                    &::after {
+                        content: "";
+                        width: 0;
+                        height: 3px;
+                        display: block;
+                        background: linear-gradient(to right, $color-red-0, $color-red-1);
+                        box-shadow: 0 0 2px 0 $color-red-0;
+                        transition: 0.7s;
+                    }
+                    &:hover {
+                        color: $color-red-1;
+                        &::after {
+                            width: 100%;
+                        }
+                    }
+                    &.active {
+                        color: $color-red-1;
+                        &::after {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            .user {
+                margin: 0 10px 0 auto;
+                display: flex;
+                align-items: center;
+                .ant-btn:hover,
+                .ant-btn:focus {
+                    color: $color-red-0;
+                    background: #fff;
+                    border-color: $color-red-0;
+                }
+                .nav-link {
+                    margin-left: 5px;
+                    padding: 0;
+                    border: none;
+                    font-size: 14px;
+                    color: $color-gray-0;
+                }
+            }
+            .bookingNavLogo {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        #bookingTab {
+            margin-top: 80px !important;
+            width: 90%;
+            margin: 0 auto;
+            .bookingTitle {
+                position: relative;
+                .bookingInfo {
+                    .infoCinema {
+                        display: flex;
+                        align-items: center;
+                        .infoCinemaDetail {
+                            margin-left: 10px;
+                            .nameCinema {
+                                font-size: 1.1rem;
+                                font-weight: $fw-2;
+                            }
+                            .cinemaTime {
+                                font-size: 1rem;
+                                color: $color-gray-0;
+                            }
+                        }
+                        .timeCountDown {
+                            position: absolute;
+                            right: 0;
+                            top: 50%;
+                            transform: translate(0, -50%);
+                            text-align: center;
+                            .timeTitle {
+                                font-size: $fs-1;
+                                // color: $color-gray-0;
+                            }
+                            .timeDown {
+                                h1 {
+                                    color: $color-red-0 !important;
+                                    margin: 0;
+                                }
+                            }
+                        }
+                        img {
+                            width: 70px;
+                            height: 70px;
+                        }
+                    }
+                }
+            }
+            .screenBooking {
+                img {
+                    width: 100%;
+                }
+            }
+            .bookingSeat {
+                width: auto !important;
+                .listSeatRow {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+            .typeSeat {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+                .typeSeatItem {
+                    .colorSeat {
+                        border-radius: 10px;
+                        margin-bottom: 5px;
+                        margin: 0 auto;
+                        height: 15px;
+                        width: 15px;
+                    }
+                    .seatNote {
+                        text-align: center;
+                    }
+                    // margin-right: 20px;
+                }
+            }
+            #reserved {
+            }
+            .buttonContinue {
+                // position: absolute;
+                // bottom: 5px;
+                // right: 0;
+                display: none;
+                text-align: center;
+                margin-top: 10px;
+                width: 100%;
+                font-size: 17px;
+                border-radius: 5px;
+                outline: none;
+                padding: 5px 30px;
+                border: 1px solid $color-red-0;
+                color: $color-white-0;
+                background-color: $color-red-0;
+                transition: 0.5s;
+                // position: fixed;
+                &:hover {
+                    border: 1px solid $color-gray-0;
+                    color: $color-gray-0;
+                    background-color: $color-white-0;
+                }
+            }
+        }
+    }
+    .buySticket {
+        background-color: $color-white-0;
+        position: fixed;
+        z-index: 10;
+        margin-left: 75%;
+        height: 100% !important;
+        border-radius: 10px;
+        box-shadow: 0 0 5px 0 $color-gray-0;
+        .total {
+            color: #44c020;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        .filmInfo {
+            display: flex;
+            align-items: center;
+            .imgFilm {
+                border-radius: 10px;
+                width: 100px;
+                height: 100px;
+                margin-left: auto;
+            }
+            .nameFilm {
+                font-size: 1.2rem;
+                font-weight: $fw-2;
+                .typeFilm {
+                    margin-right: 5px;
+                    // font-size: 1rem;
+                    padding: 2px;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 5px;
+                    color: $color-white-0;
+                    background-color: $color-red-0;
+                }
+            }
+        }
+        .seatBookings {
+            height: 40px;
+            color: $color-red-0;
+            display: flex;
+            align-items: center;
+            // flex-wrap: wrap;
+            .seatNameBooking {
+                font-size: 1rem;
+            }
+            .title {
+                font-weight: 600;
+            }
+            .totalMoney {
+                margin-left: auto;
+                color: #44c020;
+            }
+        }
+        .infoBookingFilm,
+        .infoUser {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px ridge $color-gray-0;
+            .title {
+                color: $color-gray-0;
+            }
+            .content {
+                font-weight: $fw-2;
+                margin-left: auto;
+            }
+        }
+        .infoUser {
+            .title {
+                color: $color-black-0;
+            }
+        }
+        .btnGetSticket {
+            position: absolute;
+            bottom: 5px;
+            right: 0;
+            border: none;
+            box-shadow: none;
+            border-radius: 10px;
+            width: 100%;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(223deg, #b4ec51, #429321);
+            outline: none;
+            text-align: center;
+            z-index: 4;
+            font-size: 2rem;
+            color: #fff;
+            font-weight: 500;
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                z-index: -2;
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0%;
+                height: 100%;
+                background-color: darken(#429321, 15%);
+                transition: all 0.5s;
+                border-radius: 10px;
+                z-index: -1;
+            }
+            &:hover {
+                color: #fff;
+                &:before {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+.getSticketModal {
+    .ant-modal-body {
+        .getSticketMobileInfo {
+            .filmInfo {
+                display: flex;
+                align-items: center;
+                .imgFilm {
+                    border-radius: 10px;
+                    width: 100px !important;
+                    height: 100px !important;
+                    margin-left: auto;
+                }
+                .nameFilm {
+                    font-size: 1.2rem;
+                    font-weight: $fw-2;
+                    .typeFilm {
+                        margin-right: 5px;
+                        // font-size: 1rem;
+                        padding: 2px;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 5px;
+                        color: $color-white-0;
+                        background-color: $color-red-0;
+                    }
+                }
+            }
+            .seatBookings {
+                height: 40px;
+                color: $color-red-0;
+                display: flex;
+                align-items: center;
+                // flex-wrap: wrap;
+                .seatNameBooking {
+                    font-size: 1rem;
+                }
+                .title {
+                    font-weight: 600;
+                }
+                .totalMoney {
+                    margin-left: auto;
+                    color: #44c020;
+                }
+            }
+            .total {
+                color: #44c020;
+                font-size: 2.5rem;
+                text-align: center;
+            }
+            .infoBookingFilm,
+            .infoUser {
+                display: flex;
+                align-items: center;
+                padding: 15px 0;
+                border-bottom: 1px ridge $color-gray-0;
+                .title {
+                    color: $color-gray-0;
+                }
+                .content {
+                    font-weight: $fw-2;
+                    margin-left: auto;
+                }
+            }
+            .infoUser {
+                .title {
+                    color: $color-black-0;
+                }
+            }
+        }
+    } 
+}
+
+// responsive
+
+// responsive
+@include responsive("large") {
+    .bookingSticket {
+        .bookingSeat {
+            width: 100%;
+            overflow-x: scroll;
+            .listSeatRow {
+                display: flex;
+                width: 600px !important;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        .seat {
+            width: 35px !important;
+            height: 20px !important;
+        }
+        .bookingNav {
+            .bookingNavItems {
+                width: 100% !important;
+                .nav-link {
+                    font-size: 13px !important;
+                }
+            }
+        }
+        .bookingInfo {
+            .infoCinema {
+                .infoCinemaDetail {
+                    .nameCinema {
+                        font-size: 14px !important;
+                        font-weight: $fw-2;
+                    }
+                    .cinemaTime {
+                        font-size: 13px !important;
+                        color: $color-gray-0;
+                    }
+                }
+                .timeCountDown {
+                    position: absolute;
+                    right: 0;
+                    top: 0 !important;
+                    transform: none !important;
+                    text-align: center;
+                    .timeTitle {
+                        font-size: 14px !important;
+                    }
+                    .timeDown {
+                        h1 {
+                            font-size: 17px !important;
+                            color: $color-red-0 !important;
+                            margin: 0;
+                        }
+                    }
+                }
+                img {
+                    width: 40px !important;
+                    height: 40px !important;
+                }
+            }
+        }
+        .hideOnMobile {
+            display: none !important;
+        }
+        .buttonContinue {
+            display: inline !important;
+        }
+    }
+}
