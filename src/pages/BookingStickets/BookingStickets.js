@@ -195,7 +195,6 @@ export default function BookingStickets(props) {
                     return
                 }
             }
-
             Swal.fire({
                 title: 'Đặt Tối Đa 5 Vé 1 Lần!',
                 icon: 'warning',

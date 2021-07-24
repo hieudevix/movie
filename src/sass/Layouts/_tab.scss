@@ -239,6 +239,16 @@
         }
     }
 }
+.movie__modal{
+    .ant-modal-body {
+        width: auto !important;
+        height: auto !important;
+        padding: 0 !important;
+    }
+    .ant-modal-footer {
+        padding: 0 !important;
+    }
+}
 .back__news{
     padding-top:120px;
     background-repeat: no-repeat;

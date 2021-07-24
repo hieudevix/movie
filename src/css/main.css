@@ -787,6 +787,16 @@ html, body, #root, .App {
   background-color: transparent;
 }
 
+.movie__modal .ant-modal-body {
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+}
+
+.movie__modal .ant-modal-footer {
+  padding: 0 !important;
+}
+
 .back__news {
   padding-top: 120px;
   background-repeat: no-repeat;

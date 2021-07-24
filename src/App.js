@@ -7,7 +7,7 @@ import Home from './pages/Home/Home';
 import Register from './pages/Register/Register';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
 import AdminHeader from './components/Admin/AdminHeader/AdminHeader';
-
+// import  Model  from './component/videoModal'
 
 // Cấu hình thư viện điều hướng trang
 import { createBrowserHistory } from 'history';

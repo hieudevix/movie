@@ -1,14 +1,30 @@
 import { render } from '@testing-library/react';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import Slider from "react-slick";
-
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import { Modal, Button } from 'antd';
 import { getListFilm } from '../../redux/actions/ListMovieActions';
 
 export default function Tab() {
     const { listFilmShowing, isLoading } = useSelector(state => state.ListMovieReducer);
     const [isOpen, setIsOpen] = useState(false);
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [urlVideo, setUrlVideo] = useState();
+
+    const showModal = () => {
+      setIsModalVisible(true);
+    };
+  
+    const handleOk = () => {
+      setIsModalVisible(false);
+    };
+  
+    const handleCancel = () => {
+      setIsModalVisible(false);
+    };
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getListFilm());
@@ -24,32 +40,32 @@ export default function Tab() {
         slidesPerRow: 4,
         responsive: [
             {
-              breakpoint: 1024,
-              settings: {
-                rows: 2,
-                slidesToShow: 2,
-                slidesPerRow: 2
-              }
+                breakpoint: 1024,
+                settings: {
+                    rows: 2,
+                    slidesToShow: 2,
+                    slidesPerRow: 2
+                }
             },
             {
-              breakpoint: 900,
-              settings: {
-                rows: 2,
-                slidesToShow: 1,
-                slidesPerRow: 3
-              }
+                breakpoint: 900,
+                settings: {
+                    rows: 2,
+                    slidesToShow: 1,
+                    slidesPerRow: 3
+                }
             },
             {
-              breakpoint: 576,
-              settings: {
-                rows: 1,
-                slidesToShow: 1,
-                slidesPerRow: 1,
-                rows: 1
-              }
+                breakpoint: 576,
+                settings: {
+                    rows: 1,
+                    slidesToShow: 1,
+                    slidesPerRow: 1,
+                    rows: 1
+                }
             }
-          ]
-        
+        ]
+
     };
     const createRandomNumber = (min, max) => {
         return Math.floor(Math.random() * (max - min)) + min;
@@ -76,12 +92,15 @@ export default function Tab() {
     const renderMovieShowing = () => {
         return listFilmShowing.map((f, index) => {
             if (index < 22) {
-                return <div  key={index} className="film__showing  mt-4 mb-2">
+                return <div key={index} className="film__showing  mt-4 mb-2" onClick={()=>{
+                    setIsModalVisible(true);
+                    setUrlVideo(f.trailer)
+                    }}>
                     <div className="film__img">
                         <img src={f.hinhAnh} className="w-100 d-blo ck" />
                         <div className="film__hover"></div>
                     </div>
-                    <div className="filmInfoDetail" onClick={()=>{setIsOpen(true)}}>
+                    <div className="filmInfoDetail" onClick={() => { setIsOpen(true) }}>
                         <div className="film__info d-flex">
                             <span className="nameFilm" > <span className="age__type mr-2">C18</span>
                                 {f.tenPhim}
@@ -103,10 +122,10 @@ export default function Tab() {
                         </div>
                     </div>
                     {/* <a href={`/phim/${f.maPhim}`}><button className="btnGetTicket">MUA VÉ</button></a>   */}
-                    <NavLink onClick={()=>{
-                        dispatch({type:'RESET_LOADING'});
-                        dispatch({type:'CLEAR_LIST_CINEMAS'});
-                    }} to={`/phim/${f.maPhim}`}><button className="btnGetTicket">MUA VÉ</button></NavLink> 
+                    <NavLink onClick={() => {
+                        dispatch({ type: 'RESET_LOADING' });
+                        dispatch({ type: 'CLEAR_LIST_CINEMAS' });
+                    }} to={`/phim/${f.maPhim}`}><button className="btnGetTicket">MUA VÉ</button></NavLink>
                 </div>
             }
         })
@@ -132,9 +151,9 @@ export default function Tab() {
                             <img src="./images/icons/play-video.png" />
                         </div>
                     </div>
-                    <NavLink onClick={()=>{
-                        dispatch({type:'RESET_LOADING'});
-                        dispatch({type:'CLEAR_LIST_CINEMAS'});
+                    <NavLink onClick={() => {
+                        dispatch({ type: 'RESET_LOADING' });
+                        dispatch({ type: 'CLEAR_LIST_CINEMAS' });
                     }} to={`/phim-review/${f.maPhim}`}><button className="btnFilmDetail">CHI TIẾT</button></NavLink>
                 </div>
             }
@@ -163,6 +182,9 @@ export default function Tab() {
             </div>
             <div className="container back__news" style={{ backgroundImage: "url('./images/icons/back-news.png')" }}></div>
 
+            <Modal  className="movie__modal" visible={isModalVisible} footer onOk={handleOk} onCancel={handleCancel}>
+                <iframe className="iframe__modal" width="520px" height="400px" src={urlVideo}></iframe>
+            </Modal>
         </div>
     )
 }
