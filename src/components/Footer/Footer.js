@@ -27,7 +27,7 @@ import bocongthuong from './../../asset/images/icons/bocongthuong.png';
 
 export default function Footer() {
     return (
-        <div className="footer">
+        <div className="footer" id="footer">
             <div className="container">
                 <div className="row footer__info">
                     <div className="col-12 col-sm-12 col-md-4 footer__detail">

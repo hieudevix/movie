@@ -76,14 +76,14 @@ export default function Tab() {
             let data = [];
             if (i == star - 1) {
                 if (star % 2 != 0) {
-                    data = <img src="./images/icons/star1.png" />;
+                    data = <img key={i+10} src="./images/icons/star1.png" />;
                     arrStar.push(data);
-                    data = <img src="./images/icons/star1.2.png" />;
+                    data = <img key={i+11} src="./images/icons/star1.2.png" />;
                     arrStar.push(data);
                 }
             }
             else {
-                data = <img src="./images/icons/star1.png" />;
+                data = <img key={i+20} src="./images/icons/star1.png" />;
                 arrStar.push(data);
             }
         }
@@ -160,7 +160,7 @@ export default function Tab() {
         })
     }
     return (
-        <div className="movie__tab"  >
+        <div className="movie__tab"  id="tab">
             {/* style={{backgroundImage:"url(./images/background.png) ", backgroundSize:'100%', height:'100%', zIndex:'-1'}} */}
             <nav className="movie__tab__title mb-4">
                 <div className="nav nav-tabs tab__tittle__item" id="nav-tab" role="tablist" >

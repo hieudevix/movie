@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Article() {
     return (
-        <div className="article" >
+        <div className="article" id="article" >
             <nav className=" mb-4 article__tab">
                 <div className="nav nav-tabs article__tab__item" id="nav-tab" role="tablist" >
                     <a className="nav-item tix-tab nav-link active mr-3" id="nav-home-tab" data-toggle="tab" href="#nav-movie" role="tab" aria-controls="nav-movie-tab" aria-selected="true">Điện Ảnh 24h</a>

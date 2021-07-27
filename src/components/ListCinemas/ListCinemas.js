@@ -19,7 +19,7 @@ export default function ListCinemas() {
 
     const [isActive, setActive] = useState("false");
     const { cinemaCodeList, listCinemasDetail, cinemaDetailChoose } = useSelector(state => state.ListCinemasReducer);
-    console.log('now', listCinemasDetail)
+    // console.log('now', listCinemasDetail)
     const dispatch = useDispatch();
     useEffect(() => {
         if (listCinemasDetail == '') {
@@ -64,7 +64,7 @@ export default function ListCinemas() {
                                     </div>
                                 </div>
                             </div>} key={index}>
-                                <Menu style={{ paddingLeft: '10px' }} key={indexs}
+                                <Menu style={{ paddingLeft: '10px' }} key={indexs+100}
                                     style={{ width: '100%' }}
                                     mode="inline"
                                 >
@@ -82,7 +82,7 @@ export default function ListCinemas() {
                                                     if (indexssss < 6) {
                                                         let maRap = listCinema[0].maHeThongRap.toLowerCase();
                                                         if (localStorage.getItem(USERLOGIN)) {
-                                                            return <Menu.Item key={indexssss}>
+                                                            return <Menu.Item key={createRandomNumber(120000, 90)} >
                                                                 <a target="_blank" onClick={() => {
                                                                     dispatch({
                                                                         type: 'RESET_LOADING_BOOKING'
@@ -90,7 +90,7 @@ export default function ListCinemas() {
                                                                 }} href={`/dat-ve/${maRap}/${ds.maLichChieu}`}><Alert message={`Giờ Chiếu: ${moment(ds.ngayChieuGioChieu).format('hh:mm A')}, Giá Vé: ${formatNum(ds.giaVe)} VNĐ`} type="error" showIcon /></a>
                                                             </Menu.Item>
                                                         } else {
-                                                            return <Menu.Item key={indexssss}>
+                                                            return <Menu.Item key={createRandomNumber(120000, 90)}>
                                                                 <a target="_blank" onClick={clickMovie} ><Alert message={`Giờ Chiếu: ${moment(ds.ngayChieuGioChieu).format('hh:mm A')}, Giá Vé: ${formatNum(ds.giaVe)} VNĐ`} type="error" showIcon /></a>
                                                             </Menu.Item>
                                                         }
@@ -118,6 +118,7 @@ export default function ListCinemas() {
         return listCinemasDetail.map((listCinema, index) => {
             return <Collapse
                 expandIconPosition="right"
+                key={index}
             >
                 {listCinema?.map((lc, indexs) => {
                     return <Panel header={<div className="titleCinemaMobile">
@@ -187,7 +188,7 @@ export default function ListCinemas() {
         })
     }
     return (
-        <div className="container movie__listCinemas">
+        <div className="container movie__listCinemas" id="listCinema">
             <Row className="listCinemas hideOnMobile">
                 <Col span={24}>
                     <Tabs tabPosition='left' >

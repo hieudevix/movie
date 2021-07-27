@@ -87,12 +87,12 @@ html, body, #root, .App {
   margin-right: 15px;
 }
 
-.header .header__detail .header__detail__login a {
+.header .header__detail .header__detail__login span {
   text-decoration: none;
   color: #9b9b9b;
 }
 
-.header .header__detail .header__detail__login a img {
+.header .header__detail .header__detail__login span img {
   width: 30px;
   height: auto;
   border-radius: 25px;

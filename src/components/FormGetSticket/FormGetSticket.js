@@ -129,7 +129,7 @@ export default function FormGetSticket() {
     }
     return (
         <div>
-            <div className="container formGetTicket" >
+            <div className="container formGetTicket" id="formGetSticket" >
                 <div className="row" style={{ alignItems: 'center' }}>
                     <div className="col-4 selectFilm p-0" >
                         <div className="dropdown" >

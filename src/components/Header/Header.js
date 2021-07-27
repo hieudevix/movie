@@ -19,7 +19,7 @@ export default function Header() {
 
     const renderLocation = () => {
         return listLocation.map((value, index) => {
-            return <a className="dropdown-item" key={index} onClick={() => {
+            return <a href="#" className="dropdown-item" key={index} onClick={() => {
                 dispatch({
                     type: "SET_LOCATION",
                     location: value
@@ -36,15 +36,15 @@ export default function Header() {
                     </div>
                     <div className="header__nav">
                         <ul>
-                            <li><a href="#">Lịch Chiếu</a> </li>
-                            <li><a href="#">Cụm Rạp</a></li>
-                            <li><a href="#">Tin Tức</a></li>
-                            <li><a href="#">Ứng Dụng</a></li>
+                            <li><a href="#tab">Lịch Chiếu</a> </li>
+                            <li><a href="#listCinema">Cụm Rạp</a></li>
+                            <li><a href="#article">Tin Tức</a></li>
+                            <li><a href="#introduce">Ứng Dụng</a></li>
                         </ul>
                     </div>
                     <div className="header__detail">
                         <div className="header__detail__login">
-                            {localStorage.getItem(USERLOGIN) ? <a style={{ display: 'flex' }}><img src={avatar} /><div className="dropdown">
+                            {localStorage.getItem(USERLOGIN) ? <span  style={{ display: 'flex' }}><img src={avatar} /><div className="dropdown">
                                 <div className=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {userName}
                                 </div>
@@ -59,7 +59,7 @@ export default function Header() {
                                         window.location.reload();
                                     }}>Đăng Xuất</a>
                                 </div>
-                            </div></a> : <NavLink to="/login">
+                            </div></span> : <NavLink to="/login">
                                 <img src={avatar}></img>
                                 <span>Đăng Nhập</span>
                             </NavLink>}
