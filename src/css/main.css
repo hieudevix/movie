@@ -99,6 +99,18 @@ html, body, #root, .App {
   margin-right: 10px;
 }
 
+.header .header__detail .header__detail__login a {
+  text-decoration: none;
+  color: #9b9b9b;
+}
+
+.header .header__detail .header__detail__login a img {
+  width: 30px;
+  height: auto;
+  border-radius: 25px;
+  margin-right: 10px;
+}
+
 .header .header__detail .header__detail__login .dropdown-menu.user.show {
   top: 50% !important;
 }
