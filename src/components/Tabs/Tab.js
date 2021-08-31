@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom'
 import Slider from "react-slick";
@@ -7,23 +7,24 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { Modal, Button } from 'antd';
 import { getListFilm } from '../../redux/actions/ListMovieActions';
+import { AppContext } from '../../context/AppProvider';
 
 export default function Tab() {
-    const { listFilmShowing, isLoading } = useSelector(state => state.ListMovieReducer);
+    const { listFilmShowing } = useContext(AppContext);
     const [isOpen, setIsOpen] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [urlVideo, setUrlVideo] = useState();
 
     const showModal = () => {
-      setIsModalVisible(true);
+        setIsModalVisible(true);
     };
-  
+
     const handleOk = () => {
-      setIsModalVisible(false);
+        setIsModalVisible(false);
     };
-  
+
     const handleCancel = () => {
-      setIsModalVisible(false);
+        setIsModalVisible(false);
     };
     const dispatch = useDispatch();
     useEffect(() => {
@@ -76,14 +77,14 @@ export default function Tab() {
             let data = [];
             if (i == star - 1) {
                 if (star % 2 != 0) {
-                    data = <img key={i+10} src="./images/icons/star1.png" />;
+                    data = <img key={i + 10} src="./images/icons/star1.png" />;
                     arrStar.push(data);
-                    data = <img key={i+11} src="./images/icons/star1.2.png" />;
+                    data = <img key={i + 11} src="./images/icons/star1.2.png" />;
                     arrStar.push(data);
                 }
             }
             else {
-                data = <img key={i+20} src="./images/icons/star1.png" />;
+                data = <img key={i + 20} src="./images/icons/star1.png" />;
                 arrStar.push(data);
             }
         }
@@ -92,10 +93,10 @@ export default function Tab() {
     const renderMovieShowing = () => {
         return listFilmShowing.map((f, index) => {
             if (index < 22) {
-                return <div key={index} className="film__showing  mt-4 mb-2" onClick={()=>{
+                return <div key={index} className="film__showing  mt-4 mb-2" onClick={() => {
                     setIsModalVisible(true);
                     setUrlVideo(f.trailer)
-                    }}>
+                }}>
                     <div className="film__img">
                         <img src={f.hinhAnh} className="w-100 d-blo ck" />
                         <div className="film__hover"></div>
@@ -160,7 +161,7 @@ export default function Tab() {
         })
     }
     return (
-        <div className="movie__tab"  id="tab">
+        <div className="movie__tab" id="tab">
             {/* style={{backgroundImage:"url(./images/background.png) ", backgroundSize:'100%', height:'100%', zIndex:'-1'}} */}
             <nav className="movie__tab__title mb-4">
                 <div className="nav nav-tabs tab__tittle__item" id="nav-tab" role="tablist" >
@@ -182,7 +183,7 @@ export default function Tab() {
             </div>
             <div className="container back__news" style={{ backgroundImage: "url('./images/icons/back-news.png')" }}></div>
 
-            <Modal  className="movie__modal" visible={isModalVisible} footer onOk={handleOk} onCancel={handleCancel}>
+            <Modal className="movie__modal" visible={isModalVisible} footer onOk={handleOk} onCancel={handleCancel}>
                 <iframe className="iframe__modal" width="520px" height="400px" src={urlVideo}></iframe>
             </Modal>
         </div>

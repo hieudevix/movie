@@ -10,29 +10,20 @@ import Loader from '../../components/Loader/Loader'
 import { useSelector } from 'react-redux'
 
 export default function Home() {
-    const {isLoading} = useSelector(state=>state.ListMovieReducer);
+    const { isLoading } = useSelector(state => state.ListMovieReducer);
     const [loading, setLoading] = useState(true);
     setTimeout(() => {
         setLoading(false)
     }, 1000);
-    if(loading){
-        return  <Fragment>
+    return (
+        <Fragment>
             <Header />
-            <Loader/>
+            <Carousel />
+            <Tab />
+            <ListCinemas />
+            <Article />
+            <Introduce />
+            <Footer />
         </Fragment>
-    }
-    else{
-        return (
-            <Fragment>
-                <Header />
-                <Carousel/>
-                <Tab/>
-                <ListCinemas />
-                <Article />
-                <Introduce />
-                <Footer />
-            </Fragment>
-        )
-    }
-    
+    )
 }

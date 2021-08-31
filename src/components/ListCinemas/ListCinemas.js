@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Tabs, Tag, Alert } from 'antd';
 import { Row, Col } from 'antd';
 import moment from 'moment';
@@ -10,6 +10,7 @@ import Swal from 'sweetalert2'
 import { history } from '../../App';
 import { Collapse, Select } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
+import { AppContext } from '../../context/AppProvider';
 
 const { Panel } = Collapse;
 const { Option } = Select;
@@ -17,8 +18,8 @@ const { SubMenu } = Menu;
 const { TabPane } = Tabs;
 export default function ListCinemas() {
 
-    const [isActive, setActive] = useState("false");
-    const { cinemaCodeList, listCinemasDetail, cinemaDetailChoose } = useSelector(state => state.ListCinemasReducer);
+    // const { cinemaCodeList, listCinemasDetail } = useSelector(state => state.ListCinemasReducer);
+    const { cinemaCodeList, listCinemasDetail } = useContext(AppContext);
     // console.log('now', listCinemasDetail)
     const dispatch = useDispatch();
     useEffect(() => {
@@ -64,7 +65,7 @@ export default function ListCinemas() {
                                     </div>
                                 </div>
                             </div>} key={index}>
-                                <Menu style={{ paddingLeft: '10px' }} key={indexs+100}
+                                <Menu style={{ paddingLeft: '10px' }} key={indexs + 100}
                                     style={{ width: '100%' }}
                                     mode="inline"
                                 >
@@ -155,12 +156,12 @@ export default function ListCinemas() {
                                                 </div>
                                             </div>} key={indexsss}>
                                                 <div className="ml-2" style={{ fontWeight: '600' }}>{createRandomNumber(3, 2)}D Digital</div>
-                                                <div keyy={indexsss+300} className="row ml-2">
+                                                <div keyy={indexsss + 300} className="row ml-2">
                                                     {dsp.lstLichChieuTheoPhim.map((ds, indexssss) => {
                                                         if (indexssss <= 6) {
                                                             let maRap = listCinema[0].maHeThongRap.toLowerCase();
                                                             if (localStorage.getItem(USERLOGIN)) {
-                                                                return <a key={indexssss+200} target="_blank" onClick={() => {
+                                                                return <a key={indexssss + 200} target="_blank" onClick={() => {
                                                                     dispatch({
                                                                         type: 'RESET_LOADING_BOOKING'
                                                                     })
@@ -168,7 +169,7 @@ export default function ListCinemas() {
                                                                     -{moment(ds.ngayChieuGioChieu).add(2, 'hours').format('hh:mm ')}
                                                                 </a>
                                                             } else {
-                                                                return <a key={indexssss+200} onClick={clickMovie} className="movieTime " key={indexsss + 200}><span className="mainTime">{moment(ds.ngayChieuGioChieu).format('hh:mm ')}</span>
+                                                                return <a key={indexssss + 200} onClick={clickMovie} className="movieTime " key={indexsss + 200}><span className="mainTime">{moment(ds.ngayChieuGioChieu).format('hh:mm ')}</span>
                                                                     -{moment(ds.ngayChieuGioChieu).add(2, 'hours').format('hh:mm ')}
                                                                 </a>
                                                             }
